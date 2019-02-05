@@ -20,6 +20,7 @@ public class Demo extends Component implements ActionListener {
             "Shift",
             "RandomShiftAndRescale",
             "Arithmetic Operations",
+            "Bitwise Not Transform",
     };
 
     int opIndex;  //option index for
@@ -352,12 +353,50 @@ public class Demo extends Component implements ActionListener {
             return timg;
     }
 
-    public BufferedImage BitwiseNotTransformation(BufferedImage timg, BufferedImage timg2){ //Lab 3 Exercise 2
-        return timg;
+    public BufferedImage BitwiseNotTransformation(BufferedImage timg){ //Lab 3 Exercise 2
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image1 = convertToArray(timg);
+        int[][][] image2 = new int[width][height][4];
+        int r , g , b;
+
+        for(int y=0; y<height; y++){
+            for(int x=0; x<width; x++){
+                r = image1[x][y][1]; //r
+                g = image1[x][y][2]; //g
+                b = image1[x][y][3]; //b
+                image2[x][y][1] = (~r)&0xFF; //r
+                image2[x][y][2] = (~g)&0xFF; //g
+                image2[x][y][3] = (~b)&0xFF; //b
+            }
+        }
+        return convertToBimage(image2);
     }
 
     public BufferedImage BitwiseTransformation(BufferedImage timg, BufferedImage timg2, int operator){ //Lab 3 Exercise 3
-        return timg;
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image1 = convertToArray(timg);
+        int[][][] image2 = convertToArray(timg2);
+        int[][][] temp = new int[width][height][4];
+
+        switch(operator){
+            case 0:
+                return timg;
+            case 1:
+                int r , g , b;
+
+                for(int y=0; y<height; y++){
+                    for(int x=0; x<width; x++){
+                        r = image1[x][y][1]; //r
+                        g = image1[x][y][2]; //g
+                        b = image1[x][y][3]; //b
+                        image2[x][y][1] = (~r)&0xFF; //r
+                        image2[x][y][2] = (~g)&0xFF; //g
+                        image2[x][y][3] = (~b)&0xFF; //b
+                    }
+                }
+                return convertToBimage(temp);
     }
 
     public BufferedImage ROIProcessing(BufferedImage timg){ //Lab 3 Exercise 4
@@ -479,7 +518,7 @@ public class Demo extends Component implements ActionListener {
     }
     public void filterImage() {
 
-        lastOp = 5;
+        lastOp = 6;
         switch (opIndex) {
             case 0: biFiltered = bi; /* original */
                 return;
@@ -493,7 +532,7 @@ public class Demo extends Component implements ActionListener {
                 return;
             case 5: ArithmeticOperatationsParse();
                 return;
-            case 6:
+            case 6: biFiltered = BitwiseNotTransformation(bi);
                 return;
             case 7:
                 return;
