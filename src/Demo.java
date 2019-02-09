@@ -560,7 +560,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
         return convertToBimage(image);
     }
 
-    public void FindHistogram(BufferedImage timg, int[][] histogramMatrix){ //Lab 5 Exercise 1
+    public void FindHistogram(BufferedImage timg, int[] histogramMatrix){ //Lab 5 Exercise 1
         return;
     }
 
@@ -568,8 +568,17 @@ public class Demo extends Component implements ActionListener, FocusListener {
         return;
     }
 
-    public void EqualiseHistogram(int[][] inputHistogram, int[][] outputHistogam){ //Lab 5 Exercise 3
-        return;
+    public BufferedImage EqualiseHistogram(BufferedImage timg){ //Lab 5 Exercise 3
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image = convertToArray(timg);
+        int[] histogram = new int[256];
+        FindHistogram(timg, histogram);
+
+
+
+
+        return convertToBimage(image);
     }
 
 
@@ -659,16 +668,31 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 return;
             case 15:
                 return;
-            case 16: biFiltered = ImagePixelRandShiftAndRescale(bi); //lab filter not need in final product
+            case 16:
                 return;
-            case 17: biFiltered = ImageNegative(bi); //lab filter not need in final product
+            case 17:
+                return;
+            case 18:
+                return;
+            case 19:
+                return;
+            case 20:
+                return;
+            case 21:
+                return;
+            case 22:
+                return;
+            case 23:
+                return;
+            case 24:
+                return;
+            case 25: biFiltered = ImagePixelRandShiftAndRescale(bi); //lab filter not need in final product
+                return;
+            case 26: biFiltered = ImageNegative(bi); //lab filter not need in final product
                 return;
 
         }
     }
-
-
-
 
     public void actionPerformed(ActionEvent e) {
         Object cbtemp = e.getSource();
@@ -701,13 +725,13 @@ public class Demo extends Component implements ActionListener, FocusListener {
         {
             bt = (JButton) cbtemp;
             if(bt.getActionCommand().equals("undo")) {
-                if (previousStates != null && previousStates.size() != 0) {
+                System.out.println(previousStates.size());
+                if (previousStates != null && previousStates.size() > 1) {
                     biFiltered = previousStates.get(previousStates.size() - 2);
                     previousStates.remove(previousStates.size() - 1);
                     repaint();
                 }
             }else if(bt.getActionCommand().equals("apply")){
-
                 filterImage();
                 repaint();
             }

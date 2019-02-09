@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/Demo.java" line="733" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c75fd7a4-377f-4f07-abc9-c567e1ac69bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$1.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/src/Demo.java" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/src/Demo.java" />
       <change beforePath="$PROJECT_DIR$/src/Demo.java" afterPath="$PROJECT_DIR$/src/Demo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,8 +22,8 @@
       <file leaf-file-name="Demo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Demo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1017">
-              <caret line="721" column="91" lean-forward="false" selection-start-line="721" selection-start-column="91" selection-end-line="721" selection-end-column="91" />
+            <state relative-caret-position="1242">
+              <caret line="728" column="69" lean-forward="false" selection-start-line="728" selection-start-column="69" selection-end-line="728" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2293#2294#0" expanded="true" />
@@ -38,12 +38,10 @@
                 <element signature="e#19169#19170#0" expanded="true" />
                 <element signature="e#19216#19217#0" expanded="true" />
                 <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-                <element signature="e#20480#20481#0" expanded="true" />
-                <element signature="e#20521#20522#0" expanded="true" />
-                <element signature="e#20607#20608#0" expanded="true" />
-                <element signature="e#20648#20649#0" expanded="true" />
-                <element signature="e#20732#20733#0" expanded="true" />
-                <element signature="e#20773#20774#0" expanded="true" />
+                <element signature="e#20478#20479#0" expanded="true" />
+                <element signature="e#20519#20520#0" expanded="true" />
+                <element signature="e#20605#20606#0" expanded="true" />
+                <element signature="e#20646#20647#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -296,7 +294,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13932358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13932358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -349,12 +347,10 @@
             <element signature="e#19169#19170#0" expanded="true" />
             <element signature="e#19216#19217#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20480#20481#0" expanded="true" />
-            <element signature="e#20521#20522#0" expanded="true" />
-            <element signature="e#20607#20608#0" expanded="true" />
-            <element signature="e#20648#20649#0" expanded="true" />
-            <element signature="e#20732#20733#0" expanded="true" />
-            <element signature="e#20773#20774#0" expanded="true" />
+            <element signature="e#20478#20479#0" expanded="true" />
+            <element signature="e#20519#20520#0" expanded="true" />
+            <element signature="e#20605#20606#0" expanded="true" />
+            <element signature="e#20646#20647#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -377,12 +373,10 @@
             <element signature="e#19169#19170#0" expanded="true" />
             <element signature="e#19216#19217#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20480#20481#0" expanded="true" />
-            <element signature="e#20521#20522#0" expanded="true" />
-            <element signature="e#20607#20608#0" expanded="true" />
-            <element signature="e#20648#20649#0" expanded="true" />
-            <element signature="e#20732#20733#0" expanded="true" />
-            <element signature="e#20773#20774#0" expanded="true" />
+            <element signature="e#20478#20479#0" expanded="true" />
+            <element signature="e#20519#20520#0" expanded="true" />
+            <element signature="e#20605#20606#0" expanded="true" />
+            <element signature="e#20646#20647#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -405,12 +399,10 @@
             <element signature="e#19169#19170#0" expanded="true" />
             <element signature="e#19216#19217#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20480#20481#0" expanded="true" />
-            <element signature="e#20521#20522#0" expanded="true" />
-            <element signature="e#20607#20608#0" expanded="true" />
-            <element signature="e#20648#20649#0" expanded="true" />
-            <element signature="e#20732#20733#0" expanded="true" />
-            <element signature="e#20773#20774#0" expanded="true" />
+            <element signature="e#20478#20479#0" expanded="true" />
+            <element signature="e#20519#20520#0" expanded="true" />
+            <element signature="e#20605#20606#0" expanded="true" />
+            <element signature="e#20646#20647#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -418,8 +410,8 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/add.url" />
     <entry file="file://$PROJECT_DIR$/src/Demo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1017">
-          <caret line="721" column="91" lean-forward="false" selection-start-line="721" selection-start-column="91" selection-end-line="721" selection-end-column="91" />
+        <state relative-caret-position="1242">
+          <caret line="728" column="69" lean-forward="false" selection-start-line="728" selection-start-column="69" selection-end-line="728" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2293#2294#0" expanded="true" />
@@ -434,12 +426,10 @@
             <element signature="e#19169#19170#0" expanded="true" />
             <element signature="e#19216#19217#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20480#20481#0" expanded="true" />
-            <element signature="e#20521#20522#0" expanded="true" />
-            <element signature="e#20607#20608#0" expanded="true" />
-            <element signature="e#20648#20649#0" expanded="true" />
-            <element signature="e#20732#20733#0" expanded="true" />
-            <element signature="e#20773#20774#0" expanded="true" />
+            <element signature="e#20478#20479#0" expanded="true" />
+            <element signature="e#20519#20520#0" expanded="true" />
+            <element signature="e#20605#20606#0" expanded="true" />
+            <element signature="e#20646#20647#0" expanded="true" />
           </folding>
         </state>
       </provider>
