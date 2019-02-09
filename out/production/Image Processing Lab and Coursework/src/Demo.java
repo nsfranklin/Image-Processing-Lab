@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.Buffer;
 import java.util.TreeSet;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,8 +7,9 @@ import java.awt.image.*;
 import javax.imageio.*;
 import javax.swing.*;
 import java.util.Random;
+import java.util.ArrayList;
 
-public class Demo extends Component implements ActionListener {
+public class Demo extends Component implements ActionListener, FocusListener {
 
     //************************************
     // List of the options(Original, Negative); correspond to the cases:
@@ -15,17 +17,25 @@ public class Demo extends Component implements ActionListener {
 
     String descs[] = {
             "Original",
-            "Negative",
             "Rescale",
             "Shift",
-            "RandomShiftAndRescale",
-            "Arithmetic Operations",
-            "Bitwise Not Transform",
+            "Add",
+            "Subtract",
+            "Divide",
+            "Multiply",
+            "Bitwise NOT",
+            "Bitwise OR",
+            "Bitwise XOR",
+            "Bitwise AND",
+            "Bitplane Slice",
+            "Smooth Convolution",
+            "Edge Detection Convolution",
+            "Point Processing Lookup",
     };
 
     int opIndex;  //option index for
     int lastOp;
-    String paraText = "1";
+    String paraText = "-1";
     final int OR = 1;
     final int XOR = 2;
     final int AND = 3;
@@ -36,6 +46,8 @@ public class Demo extends Component implements ActionListener {
 
     private BufferedImage bi, biFiltered, biAlt, concImage;   // the input image saved as bi;//
     int w, h;
+
+    private ArrayList<BufferedImage> previousStates;
 
     public Demo() {
         try {
@@ -51,6 +63,8 @@ public class Demo extends Component implements ActionListener {
                 big.drawImage(bi, 0, 0, null);
 
                 biFiltered = bi = bi2;
+                previousStates = new ArrayList<BufferedImage>();
+                previousStates.add(biFiltered);
             }
         } catch (IOException e) {      // deal with the situation that th image has problem;/
             System.out.println("Image could not be read");
@@ -85,8 +99,6 @@ public class Demo extends Component implements ActionListener {
     }
 
     public void paint(Graphics g) { //  Repaint will call this function so the image will change.
-        filterImage();
-
         g.drawImage(bi, 0 ,0, null);
         g.drawImage(biFiltered, bi.getWidth(), 0, null);
 
@@ -353,6 +365,44 @@ public class Demo extends Component implements ActionListener {
             return timg;
     }
 
+    public BufferedImage ArithmeticOperationsAdd(BufferedImage img1, BufferedImage img2){
+        int width = img1.getWidth();
+        int height = img1.getHeight();
+        int[][][] image1 = convertToArray(img1);
+        int[][][] image2 = convertToArray(img2);
+        int[][][] temp = new int[width][height][4];
+
+
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage ArithemeticOperationsSub(BufferedImage img1, BufferedImage img2){
+        int width = img1.getWidth();
+        int height = img1.getHeight();
+        int[][][] image1 = convertToArray(img1);
+        int[][][] image2 = convertToArray(img2);
+        int[][][] temp = new int[width][height][4];
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage ArithmeticOperationsDivide(BufferedImage img1, BufferedImage img2){
+        int width = img1.getWidth();
+        int height = img1.getHeight();
+        int[][][] image1 = convertToArray(img1);
+        int[][][] image2 = convertToArray(img2);
+        int[][][] temp = new int[width][height][4];
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage ArithmeticOperationsMultiply(BufferedImage img1, BufferedImage img2){
+        int width = img1.getWidth();
+        int height = img1.getHeight();
+        int[][][] image1 = convertToArray(img1);
+        int[][][] image2 = convertToArray(img2);
+        int[][][] temp = new int[width][height][4];
+        return convertToBimage(temp);
+    }
+
     public BufferedImage BitwiseNotTransformation(BufferedImage timg){ //Lab 3 Exercise 2
         int width = timg.getWidth();
         int height = timg.getHeight();
@@ -373,32 +423,141 @@ public class Demo extends Component implements ActionListener {
         return convertToBimage(image2);
     }
 
-    public BufferedImage BitwiseTransformation(BufferedImage timg, BufferedImage timg2, int operator){ //Lab 3 Exercise 3
+    public BufferedImage BitwiseORTransformation(BufferedImage timg, BufferedImage timg2){ //Lab 3 Exercise 3
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image1 = convertToArray(timg);
+        int[][][] image2 = convertToArray(timg2);
+        int[][][] temp = new int[width][height][4];
+        int r,g,b;
+
+        for (int y = 0; y < height; y++) {
+             for (int x = 0; x < width; x++) {
+                 r = image1[x][y][1]; //r
+                 g = image1[x][y][2]; //g
+                 b = image1[x][y][3]; //b
+                 image2[x][y][1] = (~r) & 0xFF; //r
+                 image2[x][y][2] = (~g) & 0xFF; //g
+                 image2[x][y][3] = (~b) & 0xFF; //b
+             }
+        }
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage BitwiseXORTransformation(BufferedImage timg, BufferedImage timg2){ //Lab 3 Exercise 3
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image1 = convertToArray(timg);
+        int[][][] image2 = convertToArray(timg2);
+        int[][][] temp = new int[width][height][4];
+        int r,g,b;
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                r = image1[x][y][1]; //r
+                g = image1[x][y][2]; //g
+                b = image1[x][y][3]; //b
+                image2[x][y][1] = (~r) & 0xFF; //r
+                image2[x][y][2] = (~g) & 0xFF; //g
+                image2[x][y][3] = (~b) & 0xFF; //b
+            }
+        }
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage BitwiseANDTransformation(BufferedImage timg, BufferedImage timg2){ //Lab 3 Exercise 3
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image1 = convertToArray(timg);
+        int[][][] image2 = convertToArray(timg2);
+        int[][][] temp = new int[width][height][4];
+        int r,g,b;
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                r = image1[x][y][1]; //r
+                g = image1[x][y][2]; //g
+                b = image1[x][y][3]; //b
+                image2[x][y][1] = (~r) & 0xFF; //r
+                image2[x][y][2] = (~g) & 0xFF; //g
+                image2[x][y][3] = (~b) & 0xFF; //b
+            }
+        }
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage BitPlaneSlice(BufferedImage timg, int plane){
+        int[][][] image1 = convertToArray(timg);
+        int height = timg.getHeight();
+        int width = timg.getWidth();
+        int[][][] image2 = new int[width][height][4];
+        int r,g,b;
+
+        for(int y=0; y<height; y++){
+            for(int x=0; x<width; x++){
+                r = image1[x][y][1]; //r
+                g = image1[x][y][2]; //g
+                b = image1[x][y][3]; //b
+                image2[x][y][1] = (r>>plane)&1; //r
+                image2[x][y][2] = (g>>plane)&1; //g
+                image2[x][y][3] = (b>>plane)&1; //b
+            }
+        }
+        return convertToBimage(image2);
+    }
+
+    public BufferedImage SmoothImageConvolution(BufferedImage timg){ //Lab 4 Exercise 1
+        int[][] EdgeDetectionMatrix = {{1,2,1},{2,4,2},{1,2,1}}; //gaussian blur to smooth the image.
+        BufferedImage result = timg;
+        float matrixConstant = 0.0625f;
+        Apply3x3Filter(result, EdgeDetectionMatrix, matrixConstant);
+        return timg;
+    }
+    public BufferedImage EdgeDetectionConvolution(BufferedImage timg){ //Lab 4 Exercise 2
+        int[][] EdgeDetectionMatrix = {{-1,-1,-1},{-1,8,-1},{-1,-1,-1}};
+        BufferedImage result = timg;
+        Apply3x3Filter(result, EdgeDetectionMatrix);
+        return result;
+    }
+
+    public BufferedImage Apply3x3Filter(BufferedImage timg, int[][] filterMaxtrix, float matrixConstant){  //Lab 6 Exercise 1
         return timg;
     }
 
-    public BufferedImage ROIProcessing(BufferedImage timg){ //Lab 3 Exercise 4
+    public BufferedImage Apply3x3Filter(BufferedImage timg, int[][] filterMaxtrix){  //Lab 6 Exercise 1
         return timg;
     }
 
-    public BufferedImage NegativeLinearTransform(BufferedImage timg){ //Lab 4 Exercise 1
-        return timg;
-    }
-
-    public BufferedImage LogarithmicFunction(BufferedImage timg){ //Lab 4 Exercise 2
-        return timg;
-    }
-
-    public BufferedImage PowerLaw(BufferedImage timg){ //Lab 4 Exercise 3
-        return timg;
-    }
-
-    public BufferedImage RandomLookupTransform(BufferedImage timg){ //Lab 4 Exercise 4
-        return timg;
-    }
-
-    public BufferedImage BitplaneSlicing(BufferedImage timg, int planeCounter){ //Lab 4 Exercise 5
-        return timg;
+    public BufferedImage PointProccessingLookupTable(BufferedImage img){
+        int[] LookupTable = new int[256];
+        for(int i = 0 ; i < LookupTable.length ; i++){ //fills the look up table with a test stepped look up table
+            if(i > 30){
+                LookupTable[i] = 10;
+            } else if(i > 60){
+                LookupTable[i] = 40;
+            } else if(i > 90){
+                LookupTable[i] = 70;
+            } else if(i > 120){
+                LookupTable[i] = 100;
+            } else if(i > 180){
+                LookupTable[i] = 150;
+            } else if(i > 240){
+                LookupTable[i] = 210;
+            }else{
+                LookupTable[i] = 255;
+            }
+        }
+        int[][][] image = convertToArray(img);
+        int height = img.getHeight();
+        int width = img.getWidth();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                image[x][y][1] =  LookupTable[image[x][y][1]];
+                image[x][y][2] =  LookupTable[image[x][y][2]];
+                image[x][y][3] =  LookupTable[image[x][y][3]];
+            }
+        }
+        return convertToBimage(image);
     }
 
     public void FindHistogram(BufferedImage timg, int[][] histogramMatrix){ //Lab 5 Exercise 1
@@ -413,41 +572,6 @@ public class Demo extends Component implements ActionListener {
         return;
     }
 
-    public BufferedImage ConvolutionFiltering(BufferedImage timg, int[][] filterMaxtrix){  //Lab 6 Exercise 1
-        return timg;
-    }
-
-    public BufferedImage SANDPNoise(BufferedImage timg){ //Lab 7 Exercise 1
-        return timg;
-    }
-
-    public BufferedImage MinFiltering(BufferedImage timg){ //Lab 7 Exercise 2
-        return timg;
-    }
-
-    public BufferedImage MaxFiltering(BufferedImage timg){ //Lab 7 Exercise 3
-        return timg;
-    }
-
-    public BufferedImage MidpointFiltering(BufferedImage timg){ //Lab 7 Exercise 4
-        return timg;
-    }
-
-    public BufferedImage MedianFilteing(BufferedImage timg){ //Lab 7 Exercise 5
-        return timg;
-    }
-
-    public BufferedImage MeanAndSTDDeviation(BufferedImage timg, int[] meanAndSTDDeviation){ //Lab 8 Exercise 1
-        return timg;
-    }
-
-    public BufferedImage SimpleThresholding(BufferedImage timg, int thresholdValue){ //Lab 8 Exercise 2
-        return timg;
-    }
-
-    public BufferedImage AutomatedThresholding(BufferedImage timg){ //Lab 8 Exercise 3
-        return timg;
-    }
 
     public void RescalingParse(){
         float f;
@@ -479,62 +603,70 @@ public class Demo extends Component implements ActionListener {
             biFiltered = bi;
         }
     }
-    public void ArithmeticOperatationsParse(){
-        int i = 0;
+
+
+    public void BitplaneSlicingParse(){
+        int i = -1;
         boolean b = true;
         try{
             i = Integer.parseInt(paraText);
         }catch(NumberFormatException e){
             b = false;
-            i = 0;
+            i = -1;
         }
-        if(b) {
-            biFiltered = ArithmeticOperations(bi, biAlt, i);
+        if(b && i != -1) {
+            System.out.println(i);
+            biFiltered = BitPlaneSlice(bi, i);
         }else{
             biFiltered = bi;
         }
     }
-    public void filterImage() {
 
-        lastOp = 6;
+
+    public void filterImage() {
+        previousStates.add(biFiltered);
+        lastOp = 14;
         switch (opIndex) {
-            case 0: biFiltered = bi; /* original */
+            case 0:  biFiltered = bi; /* original */
                 return;
-            case 1: biFiltered = ImageNegative(bi); /* Image Negative */
+            case 1:  RescalingParse();
                 return;
-            case 2: RescalingParse();
+            case 2:  ImagePixelShiftingParse();
                 return;
-            case 3: ImagePixelShiftingParse();
+            case 3:  biFiltered = ArithmeticOperationsAdd(bi,biAlt);
                 return;
-            case 4: biFiltered = ImagePixelRandShiftAndRescale(bi);
+            case 4:  biFiltered = ArithemeticOperationsSub(bi,biAlt);
                 return;
-            case 5: ArithmeticOperatationsParse();
+            case 5:  biFiltered = ArithmeticOperationsDivide(bi,biAlt);
                 return;
-            case 6: biFiltered = BitwiseNotTransformation(bi);
+            case 6:  biFiltered = ArithmeticOperationsMultiply(bi,biAlt);
                 return;
-            case 7:
+            case 7:  biFiltered = BitwiseNotTransformation(bi);
                 return;
-            case 8:
+            case 8:  biFiltered = BitwiseORTransformation(bi, biAlt);
                 return;
-            case 9:
+            case 9:  biFiltered = BitwiseXORTransformation(bi, biAlt);
                 return;
-            case 10:
+            case 10: biFiltered = BitwiseANDTransformation(bi, biAlt);
                 return;
-            case 11:
+            case 11: BitplaneSlicingParse();
                 return;
-            case 12:
+            case 12: biFiltered = SmoothImageConvolution(bi);
                 return;
-            case 13:
+            case 13: biFiltered = EdgeDetectionConvolution(bi);
                 return;
-            case 14:
+            case 14: biFiltered = PointProccessingLookupTable(bi);
                 return;
             case 15:
                 return;
-            case 16:
+            case 16: biFiltered = ImagePixelRandShiftAndRescale(bi); //lab filter not need in final product
+                return;
+            case 17: biFiltered = ImageNegative(bi); //lab filter not need in final product
                 return;
 
         }
     }
+
 
 
 
@@ -542,6 +674,7 @@ public class Demo extends Component implements ActionListener {
         Object cbtemp = e.getSource();
         JComboBox cb;
         JTextField tx;
+        JButton bt;
         if(cbtemp instanceof JComboBox){
              cb = (JComboBox)cbtemp;
             if (cb.getActionCommand().equals("SetFilter")) {
@@ -561,12 +694,32 @@ public class Demo extends Component implements ActionListener {
                     }
                 }
             }
-        }else{
+        }else if(cbtemp instanceof JTextField){
              tx = (JTextField)cbtemp;
              paraText = (String)tx.getText();
-             repaint();
+        }else
+        {
+            bt = (JButton) cbtemp;
+            if(bt.getActionCommand().equals("undo")) {
+                if (previousStates != null && previousStates.size() != 0) {
+                    biFiltered = previousStates.get(previousStates.size() - 2);
+                    previousStates.remove(previousStates.size() - 1);
+                    repaint();
+                }
+            }else if(bt.getActionCommand().equals("apply")){
+
+                filterImage();
+                repaint();
+            }
         }
     }
+
+    public void focusLost(FocusEvent e){
+        JTextField tx = (JTextField)e.getSource();
+        paraText = (String)tx.getText();
+    }
+
+    public void focusGained(FocusEvent e){ } // looking for focus lost on the text field. Users don't need to press enter to update text field
 
     public static void main(String s[]) {
         JFrame f = new JFrame("Image Processing Demo");
@@ -576,6 +729,12 @@ public class Demo extends Component implements ActionListener {
         Demo de = new Demo();
 
         f.add("Center", de);
+        JButton undo = new JButton("Undo");
+        JButton apply = new JButton("Apply");
+        undo.setActionCommand("undo");
+        undo.addActionListener(de);
+        apply.setActionCommand("apply");
+        apply.addActionListener(de);
         JComboBox choices = new JComboBox(de.getDescriptions());
         choices.setActionCommand("SetFilter");
         choices.addActionListener(de);
@@ -585,12 +744,15 @@ public class Demo extends Component implements ActionListener {
         JTextField textbox = new JTextField("", 10);
         textbox.setActionCommand("textEntered");
         textbox.addActionListener(de);
+        textbox.addFocusListener(de);
         JPanel panel = new JPanel();
+        panel.add(undo);
         panel.add(choices);
         panel.add(new JLabel("Save As"));
         panel.add(formats);
         panel.add(new JLabel("Parameter"));
         panel.add(textbox);
+        panel.add(apply);
         f.add("North", panel);
         f.pack();
         f.setVisible(true);
