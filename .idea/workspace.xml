@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Demo.java" line="733" />
+    <bookmark url="file://$PROJECT_DIR$/src/Demo.java" line="819" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c75fd7a4-377f-4f07-abc9-c567e1ac69bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$1.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/src/Demo.java" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/src/Demo.java" />
       <change beforePath="$PROJECT_DIR$/src/Demo.java" afterPath="$PROJECT_DIR$/src/Demo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,26 +25,25 @@
       <file leaf-file-name="Demo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Demo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="728" column="69" lean-forward="false" selection-start-line="728" selection-start-column="69" selection-end-line="728" selection-end-column="69" />
+            <state relative-caret-position="1477">
+              <caret line="609" column="39" lean-forward="false" selection-start-line="609" selection-start-column="39" selection-end-line="609" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2293#2294#0" expanded="true" />
-                <element signature="e#2337#2338#0" expanded="true" />
-                <element signature="e#2372#2373#0" expanded="true" />
-                <element signature="e#2400#2401#0" expanded="true" />
-                <element signature="e#2798#2799#0" expanded="true" />
-                <element signature="e#2825#2826#0" expanded="true" />
+                <element signature="e#2348#2349#0" expanded="true" />
+                <element signature="e#2392#2393#0" expanded="true" />
+                <element signature="e#2427#2428#0" expanded="true" />
+                <element signature="e#2455#2456#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2880#2881#0" expanded="true" />
                 <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
-                <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-                <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-                <element signature="e#19169#19170#0" expanded="true" />
-                <element signature="e#19216#19217#0" expanded="true" />
+                <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+                <element signature="e#22651#22652#0" expanded="true" />
+                <element signature="e#22698#22699#0" expanded="true" />
                 <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-                <element signature="e#20478#20479#0" expanded="true" />
-                <element signature="e#20519#20520#0" expanded="true" />
-                <element signature="e#20605#20606#0" expanded="true" />
-                <element signature="e#20646#20647#0" expanded="true" />
+                <element signature="e#23960#23961#0" expanded="true" />
+                <element signature="e#24001#24002#0" expanded="true" />
+                <element signature="e#24087#24088#0" expanded="true" />
+                <element signature="e#24128#24129#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,7 +82,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1927" />
     <option name="height" value="2118" />
   </component>
   <component name="ProjectView">
@@ -99,6 +101,9 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -115,9 +120,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,23 +285,22 @@
     <option name="totallyTimeSpent" value="2531000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1936" height="2118" extended-state="0" />
+    <frame x="-8" y="0" width="1927" height="2118" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13932358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13932358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.053180397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.053431116" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -314,6 +315,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -335,22 +337,21 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2372#2373#0" expanded="true" />
-            <element signature="e#2400#2401#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#19169#19170#0" expanded="true" />
-            <element signature="e#19216#19217#0" expanded="true" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#22651#22652#0" expanded="true" />
+            <element signature="e#22698#22699#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20478#20479#0" expanded="true" />
-            <element signature="e#20519#20520#0" expanded="true" />
-            <element signature="e#20605#20606#0" expanded="true" />
-            <element signature="e#20646#20647#0" expanded="true" />
+            <element signature="e#23960#23961#0" expanded="true" />
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24128#24129#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -361,22 +362,21 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2372#2373#0" expanded="true" />
-            <element signature="e#2400#2401#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#19169#19170#0" expanded="true" />
-            <element signature="e#19216#19217#0" expanded="true" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#22651#22652#0" expanded="true" />
+            <element signature="e#22698#22699#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20478#20479#0" expanded="true" />
-            <element signature="e#20519#20520#0" expanded="true" />
-            <element signature="e#20605#20606#0" expanded="true" />
-            <element signature="e#20646#20647#0" expanded="true" />
+            <element signature="e#23960#23961#0" expanded="true" />
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24128#24129#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -387,22 +387,71 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2372#2373#0" expanded="true" />
-            <element signature="e#2400#2401#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#19169#19170#0" expanded="true" />
-            <element signature="e#19216#19217#0" expanded="true" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#22651#22652#0" expanded="true" />
+            <element signature="e#22698#22699#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20478#20479#0" expanded="true" />
-            <element signature="e#20519#20520#0" expanded="true" />
-            <element signature="e#20605#20606#0" expanded="true" />
-            <element signature="e#20646#20647#0" expanded="true" />
+            <element signature="e#23960#23961#0" expanded="true" />
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24128#24129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#22651#22652#0" expanded="true" />
+            <element signature="e#22698#22699#0" expanded="true" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="e#23960#23961#0" expanded="true" />
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24128#24129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#22651#22652#0" expanded="true" />
+            <element signature="e#22698#22699#0" expanded="true" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="e#23960#23961#0" expanded="true" />
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24128#24129#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -410,26 +459,25 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/add.url" />
     <entry file="file://$PROJECT_DIR$/src/Demo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="728" column="69" lean-forward="false" selection-start-line="728" selection-start-column="69" selection-end-line="728" selection-end-column="69" />
+        <state relative-caret-position="1477">
+          <caret line="609" column="39" lean-forward="false" selection-start-line="609" selection-start-column="39" selection-end-line="609" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2372#2373#0" expanded="true" />
-            <element signature="e#2400#2401#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#19169#19170#0" expanded="true" />
-            <element signature="e#19216#19217#0" expanded="true" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#22651#22652#0" expanded="true" />
+            <element signature="e#22698#22699#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#20478#20479#0" expanded="true" />
-            <element signature="e#20519#20520#0" expanded="true" />
-            <element signature="e#20605#20606#0" expanded="true" />
-            <element signature="e#20646#20647#0" expanded="true" />
+            <element signature="e#23960#23961#0" expanded="true" />
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24128#24129#0" expanded="true" />
           </folding>
         </state>
       </provider>

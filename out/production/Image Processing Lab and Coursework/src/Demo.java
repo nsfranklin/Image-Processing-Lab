@@ -31,6 +31,8 @@ public class Demo extends Component implements ActionListener, FocusListener {
             "Smooth Convolution",
             "Edge Detection Convolution",
             "Point Processing Lookup",
+            "Smooth Image",
+            "Edge Detection",
     };
 
     int opIndex;  //option index for
@@ -51,7 +53,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
     public Demo() {
         try {
-            bi = ImageIO.read(new File("image/BaboonRGB.bmp"));
+            bi = ImageIO.read(new File("image/Baboon.bmp"));
             biAlt = ImageIO.read(new File("image/PeppersRGB.bmp"));
 
             w = bi.getWidth(null);
@@ -305,6 +307,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return convertToBimage(ImageArray);
     }
+
     public BufferedImage ArithmeticOperations(BufferedImage timg, BufferedImage timg2, int operator){ //Lab 3 Exercise 1
         int width = timg.getWidth();
         int height = timg.getHeight();
@@ -371,8 +374,13 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(img1);
         int[][][] image2 = convertToArray(img2);
         int[][][] temp = new int[width][height][4];
-
-
+        for(int y=0; y<height; y++){
+            for(int x =0; x<width; x++){
+                temp[x][y][1] = (image1[x][y][1] + image2[x][y][1])/2;  //r
+                temp[x][y][2] = (image1[x][y][2] + image2[x][y][2])/2;  //g
+                temp[x][y][3] = (image1[x][y][3] + image2[x][y][3])/2;  //b
+            }
+        }
         return convertToBimage(temp);
     }
 
@@ -382,6 +390,41 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(img1);
         int[][][] image2 = convertToArray(img2);
         int[][][] temp = new int[width][height][4];
+        for(int y=0; y<height; y++) {
+            for (int x = 0; x < width; x++) {
+                temp[x][y][1] = (image1[x][y][1] - image2[x][y][1]);  //r
+                temp[x][y][2] = (image1[x][y][2] - image2[x][y][2]);  //g
+                temp[x][y][3] = (image1[x][y][3] - image2[x][y][3]);  //b
+            }
+        }
+        int max = 255;
+        int min = 255;
+        for (int j = 0; j < height; j++) {
+            for (int k = 0; k < width; k++) {
+                if (temp[k][j][1] > max) {
+                    max = temp[k][j][1];
+                } else if (temp[k][j][1] < min) {
+                    min = temp[k][j][1];
+                }
+                if (temp[k][j][2] > max) {
+                    max = temp[k][j][2];
+                } else if (temp[k][j][2] < min) {
+                    min = temp[k][j][2];
+                }
+                if (temp[k][j][3] > max) {
+                    max = temp[k][j][3];
+                } else if (temp[k][j][3] < min) {
+                    min = temp[k][j][3];
+                }
+            }
+        }
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                temp[x][y][1] = (255) * (temp[x][y][1] - min) / (max - min);
+                temp[x][y][2] = (255) * (temp[x][y][2] - min) / (max - min);
+                temp[x][y][3] = (255) * (temp[x][y][3] - min) / (max - min);
+            }
+        }
         return convertToBimage(temp);
     }
 
@@ -429,16 +472,19 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(timg);
         int[][][] image2 = convertToArray(timg2);
         int[][][] temp = new int[width][height][4];
-        int r,g,b;
+        int r,g,b,r2,g2,b2;
 
         for (int y = 0; y < height; y++) {
              for (int x = 0; x < width; x++) {
                  r = image1[x][y][1]; //r
                  g = image1[x][y][2]; //g
                  b = image1[x][y][3]; //b
-                 image2[x][y][1] = (~r) & 0xFF; //r
-                 image2[x][y][2] = (~g) & 0xFF; //g
-                 image2[x][y][3] = (~b) & 0xFF; //b
+                 r2 = image2[x][y][1]; //r
+                 g2 = image2[x][y][2]; //g
+                 b2 = image2[x][y][3]; //b
+                 temp[x][y][1] = r|r2 & 0xFF;;  //r
+                 temp[x][y][2] = g|g2 & 0xFF;; //g
+                 temp[x][y][3] = b|b2 & 0xFF;;//b
              }
         }
         return convertToBimage(temp);
@@ -450,16 +496,19 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(timg);
         int[][][] image2 = convertToArray(timg2);
         int[][][] temp = new int[width][height][4];
-        int r,g,b;
+        int r,g,b,r2,g2,b2;
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 r = image1[x][y][1]; //r
                 g = image1[x][y][2]; //g
                 b = image1[x][y][3]; //b
-                image2[x][y][1] = (~r) & 0xFF; //r
-                image2[x][y][2] = (~g) & 0xFF; //g
-                image2[x][y][3] = (~b) & 0xFF; //b
+                r2 = image2[x][y][1]; //r
+                g2 = image2[x][y][2]; //g
+                b2 = image2[x][y][3]; //b
+                temp[x][y][1] = r^r2 & 0xFF;;  //r
+                temp[x][y][2] = g^g2 & 0xFF;; //g
+                temp[x][y][3] = b^b2 & 0xFF;;//b
             }
         }
         return convertToBimage(temp);
@@ -471,16 +520,19 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(timg);
         int[][][] image2 = convertToArray(timg2);
         int[][][] temp = new int[width][height][4];
-        int r,g,b;
+        int r,g,b,r2,g2,b2;
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 r = image1[x][y][1]; //r
                 g = image1[x][y][2]; //g
                 b = image1[x][y][3]; //b
-                image2[x][y][1] = (~r) & 0xFF; //r
-                image2[x][y][2] = (~g) & 0xFF; //g
-                image2[x][y][3] = (~b) & 0xFF; //b
+                r2 = image2[x][y][1]; //r
+                g2 = image2[x][y][2]; //g
+                b2 = image2[x][y][3]; //b
+                temp[x][y][1] = r&r2 & 0xFF;  //r
+                temp[x][y][2] = g&g2 & 0xFF; //g
+                temp[x][y][3] = b&b2 & 0xFF;//b
             }
         }
         return convertToBimage(temp);
@@ -501,6 +553,19 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 image2[x][y][1] = (r>>plane)&1; //r
                 image2[x][y][2] = (g>>plane)&1; //g
                 image2[x][y][3] = (b>>plane)&1; //b
+            }
+        }
+        for(int y=0; y<height; y++){
+            for(int x=0; x<width; x++){
+                if(image2[x][y][1] == 1){
+                    image2[x][y][1] = 255;
+                }
+                if(image2[x][y][2] == 1){
+                    image2[x][y][2] = 255;
+                }
+                if(image2[x][y][3] == 1){
+                    image2[x][y][3] = 255;
+                }
             }
         }
         return convertToBimage(image2);
@@ -638,11 +703,11 @@ public class Demo extends Component implements ActionListener, FocusListener {
         switch (opIndex) {
             case 0:  biFiltered = bi; /* original */
                 return;
-            case 1:  RescalingParse();
+            case 1:  RescalingParse(); //Complete
                 return;
-            case 2:  ImagePixelShiftingParse();
+            case 2:  ImagePixelShiftingParse(); //Complete
                 return;
-            case 3:  biFiltered = ArithmeticOperationsAdd(bi,biAlt);
+            case 3:  biFiltered = ArithmeticOperationsAdd(bi,biAlt); //Complete
                 return;
             case 4:  biFiltered = ArithemeticOperationsSub(bi,biAlt);
                 return;
@@ -650,15 +715,15 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 return;
             case 6:  biFiltered = ArithmeticOperationsMultiply(bi,biAlt);
                 return;
-            case 7:  biFiltered = BitwiseNotTransformation(bi);
+            case 7:  biFiltered = BitwiseNotTransformation(bi); //Complete
                 return;
-            case 8:  biFiltered = BitwiseORTransformation(bi, biAlt);
+            case 8:  biFiltered = BitwiseORTransformation(bi, biAlt); //Complete
                 return;
-            case 9:  biFiltered = BitwiseXORTransformation(bi, biAlt);
+            case 9:  biFiltered = BitwiseXORTransformation(bi, biAlt); //Complete
                 return;
-            case 10: biFiltered = BitwiseANDTransformation(bi, biAlt);
+            case 10: biFiltered = BitwiseANDTransformation(bi, biAlt); //Complete
                 return;
-            case 11: BitplaneSlicingParse();
+            case 11: BitplaneSlicingParse(); //Complete
                 return;
             case 12: biFiltered = SmoothImageConvolution(bi);
                 return;
@@ -666,11 +731,11 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 return;
             case 14: biFiltered = PointProccessingLookupTable(bi);
                 return;
-            case 15:
+            case 15: biFiltered = SmoothImageConvolution(bi);
                 return;
-            case 16:
+            case 16: biFiltered = EdgeDetectionConvolution(bi);
                 return;
-            case 17:
+            case 17: //biFiltered =  thresholding
                 return;
             case 18:
                 return;
@@ -727,8 +792,8 @@ public class Demo extends Component implements ActionListener, FocusListener {
             if(bt.getActionCommand().equals("undo")) {
                 System.out.println(previousStates.size());
                 if (previousStates != null && previousStates.size() > 1) {
-                    biFiltered = previousStates.get(previousStates.size() - 2);
-                    previousStates.remove(previousStates.size() - 1);
+                    biFiltered = previousStates.get(previousStates.size() - 1);
+                    previousStates.remove(previousStates.size()-1);
                     repaint();
                 }
             }else if(bt.getActionCommand().equals("apply")){
