@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Demo.java" line="780" />
+    <bookmark url="file://$PROJECT_DIR$/src/Demo.java" line="849" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c75fd7a4-377f-4f07-abc9-c567e1ac69bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/Demo.java" afterPath="$PROJECT_DIR$/src/Demo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,27 +20,28 @@
       <file leaf-file-name="Demo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Demo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="487" column="39" lean-forward="false" selection-start-line="487" selection-start-column="39" selection-end-line="487" selection-end-column="39" />
+            <state relative-caret-position="1434">
+              <caret line="622" column="9" lean-forward="true" selection-start-line="622" selection-start-column="9" selection-end-line="622" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2351#2352#0" expanded="true" />
-                <element signature="e#2395#2396#0" expanded="true" />
-                <element signature="e#2430#2431#0" expanded="true" />
-                <element signature="e#2458#2459#0" expanded="true" />
-                <element signature="e#2856#2857#0" expanded="true" />
-                <element signature="e#2883#2884#0" expanded="true" />
+                <element signature="e#2348#2349#0" expanded="true" />
+                <element signature="e#2392#2393#0" expanded="true" />
+                <element signature="e#2427#2428#0" expanded="true" />
+                <element signature="e#2455#2456#0" expanded="true" />
+                <element signature="e#2667#2675#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2880#2881#0" expanded="true" />
                 <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
                 <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
-                <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-                <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-                <element signature="e#21107#21108#0" expanded="true" />
-                <element signature="e#21154#21155#0" expanded="true" />
+                <element signature="e#23559#23560#0" expanded="true" />
+                <element signature="e#23606#23607#0" expanded="true" />
                 <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-                <element signature="e#22416#22417#0" expanded="true" />
-                <element signature="e#22457#22458#0" expanded="true" />
-                <element signature="e#22543#22544#0" expanded="true" />
-                <element signature="e#22584#22585#0" expanded="true" />
+                <element signature="e#24868#24869#0" expanded="true" />
+                <element signature="e#24909#24910#0" expanded="true" />
+                <element signature="e#24995#24996#0" expanded="true" />
+                <element signature="e#25036#25037#0" expanded="true" />
+                <element signature="e#31020#31122#0" expanded="true" />
+                <element signature="e#31121#31122#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,8 +79,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="1936" />
+    <option name="x" value="1734" />
+    <option name="width" value="2114" />
     <option name="height" value="2118" />
   </component>
   <component name="ProjectView">
@@ -98,7 +98,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -116,8 +115,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,7 +283,7 @@
     <option name="totallyTimeSpent" value="2531000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1936" height="2118" extended-state="0" />
+    <frame x="1734" y="0" width="2114" height="2118" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -298,7 +298,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.053180397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2485687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -335,23 +335,24 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2351#2352#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
             <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#21107#21108#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#22416#22417#0" expanded="true" />
-            <element signature="e#22457#22458#0" expanded="true" />
-            <element signature="e#22543#22544#0" expanded="true" />
-            <element signature="e#22584#22585#0" expanded="true" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -362,23 +363,24 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2351#2352#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
             <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#21107#21108#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#22416#22417#0" expanded="true" />
-            <element signature="e#22457#22458#0" expanded="true" />
-            <element signature="e#22543#22544#0" expanded="true" />
-            <element signature="e#22584#22585#0" expanded="true" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -389,23 +391,24 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2351#2352#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
             <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#21107#21108#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#22416#22417#0" expanded="true" />
-            <element signature="e#22457#22458#0" expanded="true" />
-            <element signature="e#22543#22544#0" expanded="true" />
-            <element signature="e#22584#22585#0" expanded="true" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -416,23 +419,80 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2351#2352#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
             <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#21107#21108#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#22416#22417#0" expanded="true" />
-            <element signature="e#22457#22458#0" expanded="true" />
-            <element signature="e#22543#22544#0" expanded="true" />
-            <element signature="e#22584#22585#0" expanded="true" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -440,27 +500,28 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/add.url" />
     <entry file="file://$PROJECT_DIR$/src/Demo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="487" column="39" lean-forward="false" selection-start-line="487" selection-start-column="39" selection-end-line="487" selection-end-column="39" />
+        <state relative-caret-position="1434">
+          <caret line="622" column="9" lean-forward="true" selection-start-line="622" selection-start-column="9" selection-end-line="622" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2351#2352#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2667#2675#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
             <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
             <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
-            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
-            <element signature="e#21107#21108#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#23559#23560#0" expanded="true" />
+            <element signature="e#23606#23607#0" expanded="true" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
-            <element signature="e#22416#22417#0" expanded="true" />
-            <element signature="e#22457#22458#0" expanded="true" />
-            <element signature="e#22543#22544#0" expanded="true" />
-            <element signature="e#22584#22585#0" expanded="true" />
+            <element signature="e#24868#24869#0" expanded="true" />
+            <element signature="e#24909#24910#0" expanded="true" />
+            <element signature="e#24995#24996#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#31020#31122#0" expanded="true" />
+            <element signature="e#31121#31122#0" expanded="true" />
           </folding>
         </state>
       </provider>

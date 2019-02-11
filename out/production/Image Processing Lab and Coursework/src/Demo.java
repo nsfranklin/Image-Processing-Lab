@@ -1,5 +1,6 @@
 import java.io.*;
 import java.nio.Buffer;
+import java.util.Arrays;
 import java.util.TreeSet;
 import java.awt.*;
 import java.awt.event.*;
@@ -31,8 +32,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
             "Smooth Convolution",
             "Edge Detection Convolution",
             "Point Processing Lookup",
-            "Smooth Image",
-            "Edge Detection",
     };
 
     int opIndex;  //option index for
@@ -53,7 +52,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
     public Demo() {
         try {
-            bi = ImageIO.read(new File("image/Baboon.bmp"));
+            bi = ImageIO.read(new File("image/Peppers.bmp"));
             biAlt = ImageIO.read(new File("image/PeppersRGB.bmp"));
 
             w = bi.getWidth(null);
@@ -572,25 +571,124 @@ public class Demo extends Component implements ActionListener, FocusListener {
     }
 
     public BufferedImage SmoothImageConvolution(BufferedImage timg){ //Lab 4 Exercise 1
-        int[][] EdgeDetectionMatrix = {{1,2,1},{2,4,2},{1,2,1}}; //gaussian blur to smooth the image.
+        int[][] gaussianMatrix = {{1,2,1},{2,4,2},{1,2,1}}; //gaussian blur to smooth the image.
         BufferedImage result = timg;
         float matrixConstant = 0.0625f;
-        Apply3x3Filter(result, EdgeDetectionMatrix, matrixConstant);
-        return timg;
+        return generalCorrelation(result, gaussianMatrix, matrixConstant);
     }
     public BufferedImage EdgeDetectionConvolution(BufferedImage timg){ //Lab 4 Exercise 2
-        int[][] EdgeDetectionMatrix = {{-1,-1,-1},{-1,8,-1},{-1,-1,-1}};
+        int[][] EdgeDetectionMatrix = {{-1,-1,-1},{-1,8,-1},{-1,-1,-1}}; //{{0,1,0},{1,-4,1},{0,1,0}};
         BufferedImage result = timg;
-        Apply3x3Filter(result, EdgeDetectionMatrix);
-        return result;
+        return generalCorrelation(result, EdgeDetectionMatrix);
+    }
+    public boolean Is3x3FilterSymetricAroundCentre(int[][] filter){
+
+        if(filter[0][0] == filter[2][2] && filter[0][1] == filter[2][1] && filter[0][2] == filter[2][0] && filter[1][0] == filter[1][2]){
+            System.out.println("Filter Symetric around centre. Correlation === convolution");
+            return true;
+        }
+        return false;
+    }
+    public void RotateThe3x3Matrix(int[][] matrix){
+        int temp = matrix[0][0];
+        matrix[0][0] = matrix[2][2];
+        matrix[2][2] = temp;
+
+        temp = matrix[0][1];
+        matrix[0][1] = matrix[2][1];
+        matrix[2][1] = temp;
+
+        temp = matrix[0][2];
+        matrix[0][2] = matrix[2][0];
+        matrix[2][0] = temp;
+
+        temp = matrix[1][0];
+        matrix[1][0] = matrix[1][2];
+        matrix[1][2] = temp;
+    }
+    public int[][][] addImageArrayPadding(int[][][] image){
+        int[][][] temp = new int[image[0].length][image[0][0].length][4];
+
+        temp[0][0][1] = image[0][0][1];//adding the top left corner values.
+        temp[0][0][2] = image[0][0][2];
+        temp[0][0][3] = image[0][0][3];
+        temp[0][0][1] = image[image[0].length-1][image[0][0].length-1][1];//adding the top left corner values.
+        temp[0][0][2] = image[image[0].length-1][image[0][0].length-1][2];
+        temp[0][0][3] = image[image[0].length-1][image[0][0].length-1][3];
+        for(int i = 0 ; i < image[0].length-1 ; i++){
+            temp[i+1][0][1] = image[i][0][1];
+            temp[i+1][0][2] = image[i][0][2];
+            temp[i+1][0][3] = image[i][0][3];
+            System.out.println(i);
+        }
+        return temp;
     }
 
-    public BufferedImage Apply3x3Filter(BufferedImage timg, int[][] filterMaxtrix, float matrixConstant){  //Lab 6 Exercise 1
-        return timg;
+    public int[][][] removeImageArrayPadding(int[][][] image){
+        //int[][][] temp;
+
+        return image;
     }
 
-    public BufferedImage Apply3x3Filter(BufferedImage timg, int[][] filterMaxtrix){  //Lab 6 Exercise 1
-        return timg;
+    public BufferedImage generalCorrelation(BufferedImage timg, int[][] filterMatrix, float matrixConstant){  //Lab 6 Exercise 1
+        int[][][] image1 = convertToArray(timg);
+        int height = timg.getHeight();
+        int width = timg.getWidth();
+        int[][][] image2 = addImageArrayPadding(image1);
+        int[][] Mask = filterMatrix;
+        if(!Is3x3FilterSymetricAroundCentre(Mask)){
+            RotateThe3x3Matrix(Mask);
+        }
+        int r,g,b;
+        for(int y=1; y<height-1; y++){
+            for(int x=1; x<width-1; x++){
+                r = 0; g = 0; b = 0;
+                for(int s=-1; s<=1; s++){
+                    for(int t=-1; t<=1; t++){
+                        r = r + Mask[1+s][1+t]*image1[x+s][y+t][1]; //r
+                        g = g + Mask[1+s][1+t]*image1[x+s][y+t][2]; //g
+                        b = b + Mask[1+s][1+t]*image1[x+s][y+t][3]; //b
+                    }
+                }
+                r = Math.round(r*matrixConstant);
+                g = Math.round(g*matrixConstant);
+                b = Math.round(b*matrixConstant);
+                image2[x][y][1] = r < 0? 0 : r; //r
+                image2[x][y][2] = g < 0? 0 : g; //g
+                image2[x][y][3] = b < 0? 0 : b; //b
+
+            }
+        }
+        return convertToBimage(removeImageArrayPadding(image2));
+    }
+
+    public BufferedImage generalCorrelation(BufferedImage timg, int[][] filterMatrix){  //Lab 6 Exercise 1
+        int[][][] image1 = convertToArray(timg);
+        int height = timg.getHeight();
+        int width = timg.getWidth();
+        int[][][] image2 = new int[width][height][4];
+        int[][] Mask = filterMatrix;
+        if(!Is3x3FilterSymetricAroundCentre(Mask)){
+            RotateThe3x3Matrix(Mask);
+        }
+        int r,g,b;
+        for(int y=1; y<height-1; y++){
+            for(int x=1; x<width-1; x++){
+                r = 0; g = 0; b = 0;
+                for(int s=-1; s<=1; s++){
+                    for(int t=-1; t<=1; t++){
+                        r = r + Mask[1+s][1+t]*image1[x+s][y+t][1]; //r
+                        g = g + Mask[1+s][1+t]*image1[x+s][y+t][2]; //g
+                        b = b + Mask[1+s][1+t]*image1[x+s][y+t][3]; //b
+                    }
+                }
+                image2[x][y][1] = r < 0? 0 : r; //r // some values went negative when applying a edge filter resulting in extreme salt and pepper
+                image2[x][y][2] = g < 0? 0 : g; //g
+                image2[x][y][3] = b < 0? 0 : b; //b
+
+            }
+        }
+        return convertToBimage(image2);
     }
 
     public BufferedImage PointProccessingLookupTable(BufferedImage img){
@@ -731,9 +829,9 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 return;
             case 14: biFiltered = PointProccessingLookupTable(bi);
                 return;
-            case 15: biFiltered = SmoothImageConvolution(bi);
+            case 15:
                 return;
-            case 16: biFiltered = EdgeDetectionConvolution(bi);
+            case 16:
                 return;
             case 17: //biFiltered =  thresholding
                 return;
