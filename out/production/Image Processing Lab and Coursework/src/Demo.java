@@ -32,6 +32,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
             "Smooth Convolution",
             "Edge Detection Convolution",
             "Point Processing Lookup",
+            "Edge Detection Two Passes",
     };
 
     int opIndex;  //option index for
@@ -52,7 +53,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
     public Demo() {
         try {
-            bi = ImageIO.read(new File("image/Peppers.bmp"));
+            bi = ImageIO.read(new File("image/PeppersRGB.bmp"));
             biAlt = ImageIO.read(new File("image/PeppersRGB.bmp"));
 
             w = bi.getWidth(null);
@@ -606,27 +607,38 @@ public class Demo extends Component implements ActionListener, FocusListener {
         matrix[1][0] = matrix[1][2];
         matrix[1][2] = temp;
     }
-    public int[][][] addImageArrayPadding(int[][][] image){
-        int[][][] temp = new int[image[0].length][image[0][0].length][4];
 
-        temp[0][0][1] = image[0][0][1];//adding the top left corner values.
+    public int[][][] addImageArrayPadding(int[][][] image){  // extending the board to provide padding.
+        int xLength = image[0].length +1;
+        int yLength = image[0][0].length + 1;
+        /*
+        int[][][] temp = new int[image[0].length][image[0][0].length][4];
+        temp[0][0][1] = image[0][0][1];
         temp[0][0][2] = image[0][0][2];
         temp[0][0][3] = image[0][0][3];
-        temp[0][0][1] = image[image[0].length-1][image[0][0].length-1][1];//adding the top left corner values.
-        temp[0][0][2] = image[image[0].length-1][image[0][0].length-1][2];
-        temp[0][0][3] = image[image[0].length-1][image[0][0].length-1][3];
+        temp[xLength][0][1] = image[xLength-2][0][1];
+        temp[xLength][0][2] = image[xLength-2][0][2];
+        temp[xLength][0][3] = image[xLength-2][0][3];
+        temp[0][yLength][1] = image[0][0][1];
+        temp[0][yLength][2] = image[0][0][2];
+        temp[0][yLength][3] = image[0][0][3];
+        temp[xLength][yLength][1] = image[xLength-2][temp[0][0].length-1][1];
+        temp[xLength][yLength][2] = image[xLength-2][temp[0][0].length-1][2];
+        temp[xLength][yLength][3] = image[xLength-2][temp[0][0].length-1][3];
+
         for(int i = 0 ; i < image[0].length-1 ; i++){
-            temp[i+1][0][1] = image[i][0][1];
-            temp[i+1][0][2] = image[i][0][2];
-            temp[i+1][0][3] = image[i][0][3];
+            temp[i][0][1] = image[i][0][1];
+            temp[i][0][2] = image[i][0][2];
+            temp[i][0][3] = image[i][0][3];
+            temp[temp[i].length - 1][i][1] = image[image[i].length-1][i][1];
+            temp[temp[i].length - 1][i][2] = image[image[i].length-1][i][2];
+            temp[temp[i].length - 1][i][3] = image[image[i].length-1][i][3];
             System.out.println(i);
         }
-        return temp;
+        */
+        return image;
     }
-
     public int[][][] removeImageArrayPadding(int[][][] image){
-        //int[][][] temp;
-
         return image;
     }
 
@@ -634,7 +646,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(timg);
         int height = timg.getHeight();
         int width = timg.getWidth();
-        int[][][] image2 = addImageArrayPadding(image1);
+        int[][][] image2 = image1;
         int[][] Mask = filterMatrix;
         if(!Is3x3FilterSymetricAroundCentre(Mask)){
             RotateThe3x3Matrix(Mask);
@@ -659,7 +671,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
             }
         }
-        return convertToBimage(removeImageArrayPadding(image2));
+        return convertToBimage(image2);
     }
 
     public BufferedImage generalCorrelation(BufferedImage timg, int[][] filterMatrix){  //Lab 6 Exercise 1
@@ -685,7 +697,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 image2[x][y][1] = r < 0? 0 : r; //r // some values went negative when applying a edge filter resulting in extreme salt and pepper
                 image2[x][y][2] = g < 0? 0 : g; //g
                 image2[x][y][3] = b < 0? 0 : b; //b
-
             }
         }
         return convertToBimage(image2);
@@ -797,7 +808,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
     public void filterImage() {
         previousStates.add(biFiltered);
-        lastOp = 14;
+        lastOp = 15;
         switch (opIndex) {
             case 0:  biFiltered = bi; /* original */
                 return;
@@ -829,7 +840,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 return;
             case 14: biFiltered = PointProccessingLookupTable(bi);
                 return;
-            case 15:
+            case 15: biFiltered = EdgeDetectionConvolution(EdgeDetectionConvolution(bi));
                 return;
             case 16:
                 return;
