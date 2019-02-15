@@ -1,6 +1,4 @@
 import java.io.*;
-import java.nio.Buffer;
-import java.util.Arrays;
 import java.util.TreeSet;
 import java.awt.*;
 import java.awt.event.*;
@@ -17,44 +15,41 @@ public class Demo extends Component implements ActionListener, FocusListener {
     //************************************
 
     String descs[] = {
-            "Original",
-            "Rescale",
-            "Shift",
-            "Add",
-            "Subtract",
-            "Divide",
-            "Multiply",
-            "Bitwise NOT",
-            "Bitwise OR",
-            "Bitwise XOR",
-            "Bitwise AND",
-            "Bitplane Slice",
-            "Smooth Convolution",
-            "Edge Detection Convolution",
-            "Point Processing Lookup",
-            "Edge Detection Two Passes",
+            "Original",                     //done
+            "Rescale",                      //done
+            "Shift",                        //done
+            "Add",                          //done
+            "Subtract",                     //done
+            "Divide",                       //done
+            "Multiply",                     //done
+            "Bitwise NOT",                  //done
+            "Bitwise OR",                   //done
+            "Bitwise XOR",                  //done
+            "Bitwise AND",                  //done
+            "Bitplane Slice",               //done
+            "Smooth Convolution",           //done
+            "Edge Detection Convolution",   //done
+            "Point Processing Lookup",      //done
     };
 
     int opIndex;  //option index for
     int lastOp;
     String paraText = "-1";
-    final int OR = 1;
-    final int XOR = 2;
-    final int AND = 3;
-    final int ADDITION = 1;
-    final int SUBTRACTION = 2;
-    final int MULTIPLATICATION = 3;
-    final int DIVISION = 4;
+    final int UNDOLIMIT = 10;
+    int[] ROIStart =  new int[]{0,0};
+    int[] ROIEnd = new int[]{0,0};
+
 
     private BufferedImage bi, biFiltered, biAlt, concImage;   // the input image saved as bi;//
     int w, h;
+
 
     private ArrayList<BufferedImage> previousStates;
 
     public Demo() {
         try {
             bi = ImageIO.read(new File("image/PeppersRGB.bmp"));
-            biAlt = ImageIO.read(new File("image/PeppersRGB.bmp"));
+            biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
 
             w = bi.getWidth(null);
             h = bi.getHeight(null);
@@ -64,6 +59,8 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 Graphics big = bi2.getGraphics();
                 big.drawImage(bi, 0, 0, null);
 
+                ROIEnd[0] = bi.getWidth();
+                ROIEnd[1] = bi.getHeight();
                 biFiltered = bi = bi2;
                 previousStates = new ArrayList<BufferedImage>();
                 previousStates.add(biFiltered);
@@ -74,16 +71,12 @@ public class Demo extends Component implements ActionListener, FocusListener {
             System.exit(1);
         }
     }
-
     public Dimension getPreferredSize() {
         return new Dimension(w*2, h);
     }
-
-
     String[] getDescriptions() {
         return descs;
     }
-
     // Return the formats sorted alphabetically and in lower case
     public String[] getFormats() {
         String[] formats = {"bmp","gif","jpeg","jpg","png"};
@@ -93,20 +86,14 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return formatSet.toArray(new String[0]);
     }
-
-
-
     void setOpIndex(int i) {
         opIndex = i;
     }
-
     public void paint(Graphics g) { //  Repaint will call this function so the image will change.
         g.drawImage(bi, 0 ,0, null);
         g.drawImage(biFiltered, bi.getWidth(), 0, null);
 
     }
-
-
     //************************************
     //  Convert the Buffered Image to Array
     //************************************
@@ -132,7 +119,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return result;
     }
-
     //************************************
     //  Convert the  Array to BufferedImage
     //************************************
@@ -159,8 +145,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return tmpimg;
     }
-
-
     //************************************
     //  Example:  Image Negative
     //************************************
@@ -181,12 +165,9 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
         return convertToBimage(ImageArray);  // Convert the array to BufferedImage
     }
-
-
     //************************************
     //  Your turn now:  Add more function below
     //************************************
-
     public BufferedImage ImagePixelRescale(BufferedImage timg, float scaleFactor){ //Lab 2 Exercise 1
         if(scaleFactor < 0 || scaleFactor > 2){
             System.out.println("ScaleFactor Out of Range. Original Image Returned");
@@ -307,7 +288,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return convertToBimage(ImageArray);
     }
-
     public BufferedImage ArithmeticOperations(BufferedImage timg, BufferedImage timg2, int operator){ //Lab 3 Exercise 1
         int width = timg.getWidth();
         int height = timg.getHeight();
@@ -434,7 +414,44 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(img1);
         int[][][] image2 = convertToArray(img2);
         int[][][] temp = new int[width][height][4];
+        int r,g,b, r2, g2, b2;
+        for(int y=0; y<height; y++) {
+            for (int x = 0; x < width; x++) {
+                r = image1[x][y][1];
+                g = image1[x][y][2];
+                b = image1[x][y][3];
+                r2 = image2[x][y][1];
+                g2 = image2[x][y][2];
+                b2 = image2[x][y][3];
+                if(r == 0 && r2 == 0) {
+                    temp[x][y][1] = 1;  //r
+                }else if(r2 == 0){
+                    temp [x][y][1] = image1[x][y][1];
+                }else{
+                    temp [x][y][1] = DivideAndRescale(image1[x][y][1] , image2[x][y][1]);
+                }
+                if(g == 0 && g2 == 0) {
+                    temp[x][y][2] = 1;  //r
+                }else if(g2 == 0){
+                    temp [x][y][2] = image1[x][y][2];
+                }else{
+                    temp [x][y][2] = DivideAndRescale(image1[x][y][2] , image2[x][y][2]);
+                }
+                if(b == 0 && b2 == 0) {
+                    temp[x][y][3] = 1;  //r
+                }else if(b2 == 0){
+                    temp [x][y][3] = image1[x][y][3];
+                }else{
+                    temp [x][y][3] = DivideAndRescale(image1[x][y][3] , image2[x][y][3]);
+                }
+            }
+        }
         return convertToBimage(temp);
+    }
+
+    public int DivideAndRescale(int a , int b){
+        float temp = a / b * 255;
+        return Math.round(temp);
     }
 
     public BufferedImage ArithmeticOperationsMultiply(BufferedImage img1, BufferedImage img2){
@@ -443,6 +460,41 @@ public class Demo extends Component implements ActionListener, FocusListener {
         int[][][] image1 = convertToArray(img1);
         int[][][] image2 = convertToArray(img2);
         int[][][] temp = new int[width][height][4];
+        for(int y=0; y<height; y++) {
+            for (int x = 0; x < width; x++) {
+                temp[x][y][1] = (image1[x][y][1] * image2[x][y][1]);  //r
+                temp[x][y][2] = (image1[x][y][2] * image2[x][y][2]);  //g
+                temp[x][y][3] = (image1[x][y][3] * image2[x][y][3]);  //b
+            }
+        }
+        int max = 255;
+        int min = 255;
+        for (int j = 0; j < height; j++) {
+            for (int k = 0; k < width; k++) {
+                if (temp[k][j][1] > max) {
+                    max = temp[k][j][1];
+                } else if (temp[k][j][1] < min) {
+                    min = temp[k][j][1];
+                }
+                if (temp[k][j][2] > max) {
+                    max = temp[k][j][2];
+                } else if (temp[k][j][2] < min) {
+                    min = temp[k][j][2];
+                }
+                if (temp[k][j][3] > max) {
+                    max = temp[k][j][3];
+                } else if (temp[k][j][3] < min) {
+                    min = temp[k][j][3];
+                }
+            }
+        }
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                temp[x][y][1] = (255) * (temp[x][y][1] - min) / (max - min);
+                temp[x][y][2] = (255) * (temp[x][y][2] - min) / (max - min);
+                temp[x][y][3] = (255) * (temp[x][y][3] - min) / (max - min);
+            }
+        }
         return convertToBimage(temp);
     }
 
@@ -585,7 +637,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
     public boolean Is3x3FilterSymetricAroundCentre(int[][] filter){
 
         if(filter[0][0] == filter[2][2] && filter[0][1] == filter[2][1] && filter[0][2] == filter[2][0] && filter[1][0] == filter[1][2]){
-            System.out.println("Filter Symetric around centre. Correlation === convolution");
             return true;
         }
         return false;
@@ -641,7 +692,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
     public int[][][] removeImageArrayPadding(int[][][] image){
         return image;
     }
-
     public BufferedImage generalCorrelation(BufferedImage timg, int[][] filterMatrix, float matrixConstant){  //Lab 6 Exercise 1
         int[][][] image1 = convertToArray(timg);
         int height = timg.getHeight();
@@ -673,7 +723,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return convertToBimage(image2);
     }
-
     public BufferedImage generalCorrelation(BufferedImage timg, int[][] filterMatrix){  //Lab 6 Exercise 1
         int[][][] image1 = convertToArray(timg);
         int height = timg.getHeight();
@@ -701,7 +750,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
         }
         return convertToBimage(image2);
     }
-
     public BufferedImage PointProccessingLookupTable(BufferedImage img){
         int[] LookupTable = new int[256];
         for(int i = 0 ; i < LookupTable.length ; i++){ //fills the look up table with a test stepped look up table
@@ -734,22 +782,47 @@ public class Demo extends Component implements ActionListener, FocusListener {
         return convertToBimage(image);
     }
 
-    public void FindHistogram(BufferedImage timg, int[] histogramMatrix){ //Lab 5 Exercise 1
-        return;
+    public void FindHistogram(BufferedImage timg, int[] HistgramR, int[] HistgramG, int[] HistgramB){ //Lab 5 Exercise 1
+        int[][][] image = convertToArray(timg);
+        int height = timg.getHeight();
+        int width = timg.getWidth();
+        int r,g,b;
+        for(int k=0; k<=255; k++) {
+            HistgramR[k] = 0;
+            HistgramG[k] = 0;
+            HistgramB[k] = 0;
+        }
+        for(int y=0; y<height; y++){
+            for(int x=0; x<width; x++){
+                r = image[x][y][1];
+                g = image[x][y][2];
+                b = image[x][y][3];
+                HistgramR[r]++;
+                HistgramG[g]++;
+                HistgramB[b]++;
+            }
+        }
     }
 
-    public void NormaliseHistogram(int[][] inputHistogram, int[][] outputHistogram){ //Lab 5 Exercise 2
-        return;
-    }
+    public BufferedImage NormaliseHistogram(BufferedImage timg){ //Lab 5 Exercise 2
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image = convertToArray(timg);
+        int[] HistgramR = new int[256];
+        int[] HistgramG = new int[256];
+        int[] HistgramB = new int[256];
+        FindHistogram(timg, HistgramR, HistgramG, HistgramB);
 
+        return convertToBimage(image);
+    }
     public BufferedImage EqualiseHistogram(BufferedImage timg){ //Lab 5 Exercise 3
         int width = timg.getWidth();
         int height = timg.getHeight();
         int[][][] image = convertToArray(timg);
-        int[] histogram = new int[256];
-        FindHistogram(timg, histogram);
-
-
+        int[] HistgramR = new int[256];
+        int[] HistgramG = new int[256];
+        int[] HistgramB = new int[256];
+        FindHistogram(timg, HistgramR, HistgramG, HistgramB);
 
 
         return convertToBimage(image);
@@ -808,7 +881,7 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
     public void filterImage() {
         previousStates.add(biFiltered);
-        lastOp = 15;
+        lastOp = 14;
         switch (opIndex) {
             case 0:  biFiltered = bi; /* original */
                 return;
@@ -903,6 +976,9 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 if (previousStates != null && previousStates.size() > 1) {
                     biFiltered = previousStates.get(previousStates.size() - 1);
                     previousStates.remove(previousStates.size()-1);
+                    if(previousStates.size() > UNDOLIMIT){ //the system only stores the last x image states in the undo array
+                        previousStates.remove(0);
+                    }
                     repaint();
                 }
             }else if(bt.getActionCommand().equals("apply")){
