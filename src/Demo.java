@@ -61,6 +61,61 @@ public class Demo extends Component implements ActionListener, FocusListener{
     private ArrayList<BufferedImage> futureStates; //redo states
 
     public Demo() {
+        JFrame f = new JFrame("Image Processing demo");
+        f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {System.exit(0);}
+        });
+        f.add("Center", this);
+        JButton apply = new JButton("Apply"); apply.setActionCommand("apply"); apply.addActionListener(this);
+
+        JMenuBar mBar = new JMenuBar();
+        JMenuBar FileBar = new JMenuBar(); JMenu Menu = new JMenu("File");
+        JMenuBar EditBar = new JMenuBar(); JMenu EMenu = new JMenu("Edit");
+
+
+        JMenuItem Undo = new   JMenuItem("Undo                          Ctrl + Z");
+        Undo.setActionCommand("undo");
+        KeyStroke controlZ = KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK);
+        //Undo.getInputMap().put(controlZ, "press");
+        //Undo.getActionMap().put("press", this);
+        Undo.addActionListener(this);
+
+        JMenuItem Redo = new   JMenuItem("Redo             Ctrl + Shift + Z"); Redo.setActionCommand("redo"); Redo.addActionListener(this);
+        JMenuItem SetROI = new JMenuItem("Set Region               Ctrl + R"); SetROI.setActionCommand("setROI"); SetROI.addActionListener(this);
+
+        JMenu save = new JMenu("Save Image As");
+        JMenuItem bmp = new JMenuItem("bmp"); bmp.setActionCommand("bmp"); bmp.addActionListener(this);
+        JMenuItem gif = new JMenuItem("gif"); gif.setActionCommand("gif"); gif.addActionListener(this);
+        JMenuItem jpeg = new JMenuItem("jpeg"); jpeg.setActionCommand("jpeg"); jpeg.addActionListener(this);
+        JMenuItem jpg = new JMenuItem("jpg"); jpg.setActionCommand("jpg"); jpg.addActionListener(this);
+        JMenuItem png = new JMenuItem("png"); png.setActionCommand("png"); png.addActionListener(this);
+
+        JMenu Settings = new JMenu("Settings");
+        JCheckBoxMenuItem AdvancedOptions = new JCheckBoxMenuItem("Enable Advanced Options"); AdvancedOptions.setActionCommand("Advancethisnabled"); AdvancedOptions.addActionListener(this);
+
+        JComboBox choices = new JComboBox(this.getDescriptions()); choices.setActionCommand("SetFilter"); choices.addActionListener(this);
+
+        JTextField textbox = new JTextField("", 10); textbox.setActionCommand("textEntered"); textbox.addActionListener(this); textbox.addFocusListener(this);
+
+        FileBar.add(Menu);
+        Menu.add(save); save.add(bmp); save.add(gif); save.add(jpeg); save.add(jpg); save.add(png);
+        EditBar.add(EMenu); EMenu.add(Undo); EMenu.add(Redo); EMenu.add(SetROI);
+
+        JPanel panel = new JPanel();
+
+
+        panel.add(FileBar);
+        panel.add(EditBar);
+        panel.add(mBar); mBar.add(Settings); Settings.add(AdvancedOptions);
+        panel.add(new JLabel("Set Operation"));
+        panel.add(choices);
+        panel.add(new JLabel("Parameter"));
+        panel.add(textbox);
+        panel.add(apply);
+        f.add("North", panel);
+        f.pack();
+        f.setVisible(true);
+
         try {
             bi = ImageIO.read(new File("image/Goldhill.bmp"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
@@ -1300,62 +1355,8 @@ public class Demo extends Component implements ActionListener, FocusListener{
 
 
     public static void main(String s[]) {
-        JFrame f = new JFrame("Image Processing Demo");
-        f.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {System.exit(0);}
-        });
+
         Demo de = new Demo();
-
-        f.add("Center", de);
-        JButton apply = new JButton("Apply"); apply.setActionCommand("apply"); apply.addActionListener(de);
-
-        JMenuBar mBar = new JMenuBar();
-        JMenuBar FileBar = new JMenuBar(); JMenu Menu = new JMenu("File");
-        JMenuBar EditBar = new JMenuBar(); JMenu EMenu = new JMenu("Edit");
-
-
-        JMenuItem Undo = new   JMenuItem("Undo                          Ctrl + Z");
-        Undo.setActionCommand("undo");
-        KeyStroke controlZ = KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK);
-        Undo.getInputMap().put(controlZ, "press");
-        Undo.getActionMap().put("press", de);
-        Undo.addActionListener(de);
-
-        JMenuItem Redo = new   JMenuItem("Redo             Ctrl + Shift + Z"); Redo.setActionCommand("redo"); Redo.addActionListener(de);
-        JMenuItem SetROI = new JMenuItem("Set Region               Ctrl + R"); SetROI.setActionCommand("setROI"); SetROI.addActionListener(de);
-
-        JMenu save = new JMenu("Save Image As");
-        JMenuItem bmp = new JMenuItem("bmp"); bmp.setActionCommand("bmp"); bmp.addActionListener(de);
-        JMenuItem gif = new JMenuItem("gif"); gif.setActionCommand("gif"); gif.addActionListener(de);
-        JMenuItem jpeg = new JMenuItem("jpeg"); jpeg.setActionCommand("jpeg"); jpeg.addActionListener(de);
-        JMenuItem jpg = new JMenuItem("jpg"); jpg.setActionCommand("jpg"); jpg.addActionListener(de);
-        JMenuItem png = new JMenuItem("png"); png.setActionCommand("png"); png.addActionListener(de);
-
-        JMenu Settings = new JMenu("Settings");
-        JCheckBoxMenuItem AdvancedOptions = new JCheckBoxMenuItem("Enable Advanced Options"); AdvancedOptions.setActionCommand("AdvancedEnabled"); AdvancedOptions.addActionListener(de);
-
-        JComboBox choices = new JComboBox(de.getDescriptions()); choices.setActionCommand("SetFilter"); choices.addActionListener(de);
-
-        JTextField textbox = new JTextField("", 10); textbox.setActionCommand("textEntered"); textbox.addActionListener(de); textbox.addFocusListener(de);
-
-        FileBar.add(Menu);
-        Menu.add(save); save.add(bmp); save.add(gif); save.add(jpeg); save.add(jpg); save.add(png);
-        EditBar.add(EMenu); EMenu.add(Undo); EMenu.add(Redo); EMenu.add(SetROI);
-
-        JPanel panel = new JPanel();
-
-
-        panel.add(FileBar);
-        panel.add(EditBar);
-        panel.add(mBar); mBar.add(Settings); Settings.add(AdvancedOptions);
-        panel.add(new JLabel("Set Operation"));
-        panel.add(choices);
-        panel.add(new JLabel("Parameter"));
-        panel.add(textbox);
-        panel.add(apply);
-        f.add("North", panel);
-        f.pack();
-        f.setVisible(true);
-
+        
     }
 }
