@@ -8,10 +8,11 @@ import java.awt.event.*;
 import java.awt.image.*;
 import javax.imageio.*;
 import javax.swing.*;
+import javax.swing.ImageIcon;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Demo extends Component implements ActionListener, FocusListener {
+public class Demo extends Component implements ActionListener, FocusListener{
 
     //************************************
     // List of the options(Original, Negative); correspond to the cases:
@@ -49,17 +50,19 @@ public class Demo extends Component implements ActionListener, FocusListener {
     final int UNDOLIMIT = 10;
     int[] ROIStart =  new int[]{0,0};
     int[] ROIEnd = new int[]{0,0};
+    Boolean useROI = true;
 
 
-    private BufferedImage bi, biFiltered, biAlt, concImage;   // the input image saved as bi;//
+    private BufferedImage bi, biFiltered, biAlt, biPreROIFilter;   // the input image saved as bi;//
     int w, h;
 
 
     private ArrayList<BufferedImage> previousStates;
+    private ArrayList<BufferedImage> futureStates; //redo states
 
     public Demo() {
         try {
-            bi = ImageIO.read(new File("image/PeppersRGB.bmp"));
+            bi = ImageIO.read(new File("image/Goldhill.bmp"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
 
             w = bi.getWidth(null);
@@ -73,11 +76,11 @@ public class Demo extends Component implements ActionListener, FocusListener {
                 ROIEnd[1] = bi.getHeight();
                 biFiltered = bi = bi2;
                 previousStates = new ArrayList<BufferedImage>();
+                futureStates = new ArrayList<BufferedImage>();
                 previousStates.add(biFiltered);
             }
         } catch (IOException e) {      // deal with the situation that th image has problem;/
             System.out.println("Image could not be read");
-
             System.exit(1);
         }
     }
@@ -1045,7 +1048,6 @@ public class Demo extends Component implements ActionListener, FocusListener {
             biFiltered = bi;
         }
     }
-
     public void RescalingParse(){
         float f;
         boolean b = true;
@@ -1153,58 +1155,148 @@ public class Demo extends Component implements ActionListener, FocusListener {
 
         }
     }
+    public void undo(){
+        System.out.println(previousStates.size());
+        if (previousStates != null && previousStates.size() > 1) {
+            futureStates.add(biFiltered);
+            biFiltered = previousStates.get(previousStates.size() - 1);
+            previousStates.remove(previousStates.size() - 1);
+            if (previousStates.size() > UNDOLIMIT) { //the system only stores the last x image states in the undo array
+                previousStates.remove(0);
+            }
+            repaint();
+        }
+    }
+    public void redo(){
+        System.out.println("future count " + futureStates.size());
+        if (futureStates != null && futureStates.size() > 0) {
+            previousStates.add(biFiltered);
+            biFiltered = futureStates.get(futureStates.size() -1);
+            futureStates.remove(futureStates.size() - 1);
+            if (futureStates.size() > UNDOLIMIT) { //the system only stores the last x image states in the undo array
+                futureStates.remove(0);
+            }
+            repaint();
+        }
+    }
+
+    public void SetRegionOfInterest(){
+
+    }
+
+
+    public void save(String format, Component comp){
+        File saveFile = new File("savedimage."+format);
+        JFileChooser chooser = new JFileChooser();
+        chooser.setSelectedFile(saveFile);
+        int rval = chooser.showSaveDialog(comp);
+        if (rval == JFileChooser.APPROVE_OPTION) {
+            saveFile = chooser.getSelectedFile();
+            try {
+                ImageIO.write(biFiltered, format, saveFile);
+            } catch (IOException ex) {
+            }
+        }
+    }
+
+    public void keyPressed(KeyEvent evt) {
+        System.out.println("key pressed");
+        if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_Z) {
+            undo();
+        } else if (evt.isControlDown() && evt.isShiftDown() && evt.getKeyCode() == KeyEvent.VK_Z) {
+            redo();
+        }
+    }
+
+    public void keyReleased(KeyEvent evt){};
+    public void keyTyped(KeyEvent evt){};
+
+
     public void actionPerformed(ActionEvent e) {
         Object cbtemp = e.getSource();
         JComboBox cb;
         JTextField tx;
         JButton bt;
+        JCheckBoxMenuItem cbmi;
+        JMenuItem mi;
         if(cbtemp instanceof JComboBox){
              cb = (JComboBox)cbtemp;
             if (cb.getActionCommand().equals("SetFilter")) {
                 setOpIndex(cb.getSelectedIndex());
-                repaint();
-            } else if (cb.getActionCommand().equals("Formats")) {
-                String format = (String)cb.getSelectedItem();
-                File saveFile = new File("savedimage."+format);
-                JFileChooser chooser = new JFileChooser();
-                chooser.setSelectedFile(saveFile);
-                int rval = chooser.showSaveDialog(cb);
-                if (rval == JFileChooser.APPROVE_OPTION) {
-                    saveFile = chooser.getSelectedFile();
-                    try {
-                        ImageIO.write(biFiltered, format, saveFile);
-                    } catch (IOException ex) {
-                    }
-                }
             }
         }else if(cbtemp instanceof JTextField){
              tx = (JTextField)cbtemp;
              paraText = (String)tx.getText();
-        }else
-        {
+        }else if(cbtemp instanceof JButton) {
             bt = (JButton) cbtemp;
-            if(bt.getActionCommand().equals("undo")) {
-                System.out.println(previousStates.size());
-                if (previousStates != null && previousStates.size() > 1) {
-                    biFiltered = previousStates.get(previousStates.size() - 1);
-                    previousStates.remove(previousStates.size()-1);
-                    if(previousStates.size() > UNDOLIMIT){ //the system only stores the last x image states in the undo array
-                        previousStates.remove(0);
-                    }
-                    repaint();
-                }
+            if(bt.getActionCommand().equals("undo")){
+                undo();
             }else if(bt.getActionCommand().equals("apply")){
+                if(useROI){
+                biPreROIFilter = bi;
+                bi = regionOfInterest();
                 filterImage();
+                biFiltered = regionOfInterestReintegrate();
+                bi = biPreROIFilter;}
+                else{
+                    filterImage();
+                }
                 repaint();
+            }
+        }else if(cbtemp instanceof JCheckBoxMenuItem){
+            System.out.println("toggled");
+        }else if(cbtemp instanceof  JMenuItem){
+            mi = (JMenuItem)cbtemp;
+            switch(mi.getActionCommand()){
+                case "bmp": save("bmp", mi);
+                    return;
+                case "gif": save("gif", mi);
+                    return;
+                case "jpeg": save("jpeg", mi);
+                    return;
+                case "jpg": save("jpg", mi);
+                    return;
+                case "png": save("png", mi);
+                    return;
+                case "undo": undo();
+                    return;
+                case "redo": redo();
+                    return;
+                case "setROI": SetRegionOfInterest();
+                    return;
             }
         }
     }
+
     public void focusLost(FocusEvent e){
         JTextField tx = (JTextField)e.getSource();
         paraText = (String)tx.getText();
     }
     public void focusGained(FocusEvent e){ } // looking for focus lost on the text field. Users don't need to press enter to update text field
-
+    public BufferedImage regionOfInterest(){
+        int [][][] temp = convertToArray(bi);
+        int [][][] temp2 = new int[ROIEnd[0]-ROIStart[0]][ROIEnd[1]-ROIStart[1]][4];
+        for(int i = ROIStart[0], x = 0; i < ROIEnd[0]; i++, x++){
+            for(int j = ROIStart[1], y = 0; j < ROIEnd[1]; j++, y++){
+                temp2[x][y][1] = temp[i][j][1];
+                temp2[x][y][2] = temp[i][j][2];
+                temp2[x][y][3] = temp[i][j][3];
+            }
+        }
+        return convertToBimage(temp2);
+    }
+    public BufferedImage regionOfInterestReintegrate(){
+        int[][][] temp = convertToArray(biFiltered);
+        int[][][] temp2 = convertToArray(biPreROIFilter);
+        for(int i = ROIStart[0], x = 0; i < ROIEnd[0]; i++, x++){
+            for(int j = ROIStart[1], y = 0; j < ROIEnd[1]; j++, y++){
+                temp2[i][j][1] = temp[x][y][1];
+                temp2[i][j][2] = temp[x][y][2];
+                temp2[i][j][3] = temp[x][y][3];
+            }
+        }
+        return convertToBimage(temp2);
+    }
 
 
     public static void main(String s[]) {
@@ -1215,27 +1307,49 @@ public class Demo extends Component implements ActionListener, FocusListener {
         Demo de = new Demo();
 
         f.add("Center", de);
-        JButton undo = new JButton("Undo");
-        JButton apply = new JButton("Apply");
-        undo.setActionCommand("undo");
-        undo.addActionListener(de);
-        apply.setActionCommand("apply");
-        apply.addActionListener(de);
-        JComboBox choices = new JComboBox(de.getDescriptions());
-        choices.setActionCommand("SetFilter");
-        choices.addActionListener(de);
-        JComboBox formats = new JComboBox(de.getFormats());
-        formats.setActionCommand("Formats");
-        formats.addActionListener(de);
-        JTextField textbox = new JTextField("", 10);
-        textbox.setActionCommand("textEntered");
-        textbox.addActionListener(de);
-        textbox.addFocusListener(de);
+        JButton apply = new JButton("Apply"); apply.setActionCommand("apply"); apply.addActionListener(de);
+
+        JMenuBar mBar = new JMenuBar();
+        JMenuBar FileBar = new JMenuBar(); JMenu Menu = new JMenu("File");
+        JMenuBar EditBar = new JMenuBar(); JMenu EMenu = new JMenu("Edit");
+
+
+        JMenuItem Undo = new   JMenuItem("Undo                          Ctrl + Z");
+        Undo.setActionCommand("undo");
+        KeyStroke controlZ = KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK);
+        Undo.getInputMap().put(controlZ, "press");
+        Undo.getActionMap().put("press", de);
+        Undo.addActionListener(de);
+
+        JMenuItem Redo = new   JMenuItem("Redo             Ctrl + Shift + Z"); Redo.setActionCommand("redo"); Redo.addActionListener(de);
+        JMenuItem SetROI = new JMenuItem("Set Region               Ctrl + R"); SetROI.setActionCommand("setROI"); SetROI.addActionListener(de);
+
+        JMenu save = new JMenu("Save Image As");
+        JMenuItem bmp = new JMenuItem("bmp"); bmp.setActionCommand("bmp"); bmp.addActionListener(de);
+        JMenuItem gif = new JMenuItem("gif"); gif.setActionCommand("gif"); gif.addActionListener(de);
+        JMenuItem jpeg = new JMenuItem("jpeg"); jpeg.setActionCommand("jpeg"); jpeg.addActionListener(de);
+        JMenuItem jpg = new JMenuItem("jpg"); jpg.setActionCommand("jpg"); jpg.addActionListener(de);
+        JMenuItem png = new JMenuItem("png"); png.setActionCommand("png"); png.addActionListener(de);
+
+        JMenu Settings = new JMenu("Settings");
+        JCheckBoxMenuItem AdvancedOptions = new JCheckBoxMenuItem("Enable Advanced Options"); AdvancedOptions.setActionCommand("AdvancedEnabled"); AdvancedOptions.addActionListener(de);
+
+        JComboBox choices = new JComboBox(de.getDescriptions()); choices.setActionCommand("SetFilter"); choices.addActionListener(de);
+
+        JTextField textbox = new JTextField("", 10); textbox.setActionCommand("textEntered"); textbox.addActionListener(de); textbox.addFocusListener(de);
+
+        FileBar.add(Menu);
+        Menu.add(save); save.add(bmp); save.add(gif); save.add(jpeg); save.add(jpg); save.add(png);
+        EditBar.add(EMenu); EMenu.add(Undo); EMenu.add(Redo); EMenu.add(SetROI);
+
         JPanel panel = new JPanel();
-        panel.add(undo);
+
+
+        panel.add(FileBar);
+        panel.add(EditBar);
+        panel.add(mBar); mBar.add(Settings); Settings.add(AdvancedOptions);
+        panel.add(new JLabel("Set Operation"));
         panel.add(choices);
-        panel.add(new JLabel("Save As"));
-        panel.add(formats);
         panel.add(new JLabel("Parameter"));
         panel.add(textbox);
         panel.add(apply);
