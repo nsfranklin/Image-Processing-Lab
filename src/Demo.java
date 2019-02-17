@@ -1,4 +1,5 @@
 import com.sun.org.apache.bcel.internal.generic.LOOKUPSWITCH;
+import jdk.nashorn.internal.scripts.JO;
 
 import java.io.*;
 import java.util.Arrays;
@@ -61,6 +62,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
     private ArrayList<BufferedImage> futureStates; //redo states
 
     public Demo() {
+
         JFrame f = new JFrame("Image Processing demo");
         f.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {System.exit(0);}
@@ -73,15 +75,27 @@ public class Demo extends Component implements ActionListener, FocusListener{
         JMenuBar EditBar = new JMenuBar(); JMenu EMenu = new JMenu("Edit");
 
 
-        JMenuItem Undo = new   JMenuItem("Undo                          Ctrl + Z");
-        Undo.setActionCommand("undo");
-        KeyStroke controlZ = KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK);
-        //Undo.getInputMap().put(controlZ, "press");
-        //Undo.getActionMap().put("press", this);
-        Undo.addActionListener(this);
 
-        JMenuItem Redo = new   JMenuItem("Redo             Ctrl + Shift + Z"); Redo.setActionCommand("redo"); Redo.addActionListener(this);
-        JMenuItem SetROI = new JMenuItem("Set Region               Ctrl + R"); SetROI.setActionCommand("setROI"); SetROI.addActionListener(this);
+
+        Action undoAction = new undoAction("Undo                          Ctrl + Z", "Undo the last filter applied. ShortCut: Control + Z");
+        JMenuItem Undo = new JMenuItem(undoAction);
+        KeyStroke controlZ = KeyStroke.getKeyStroke(KeyEvent.VK_Z , InputEvent.CTRL_MASK);
+        Undo.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(controlZ, "conZ");
+        Undo.getActionMap().put("conZ", undoAction);
+
+        Action redoAction = new RedoAction("Redo             Ctrl + Shift + Z", "Undo an undo Shortcut: Control + Shift + Z");
+        JMenuItem Redo = new   JMenuItem(redoAction);
+        KeyStroke controlShiftZ = KeyStroke.getKeyStroke(KeyEvent.VK_Z, 3); //3 is the input.shift_mask + input.control_mask;
+        Redo.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(controlShiftZ, "conShifZ");
+        Redo.getActionMap().put("conShifZ", redoAction);
+
+
+        Action setROIAction = new SetROIAction("Set Region               Ctrl + R", "Opens a Diaglog to set the region of interest.");
+        JMenuItem SetROI = new JMenuItem(setROIAction);
+        KeyStroke controlR = KeyStroke.getKeyStroke(KeyEvent.VK_R , InputEvent.CTRL_MASK);
+        SetROI.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(controlR, "conR");
+        SetROI.getActionMap().put("conR", setROIAction);
+
 
         JMenu save = new JMenu("Save Image As");
         JMenuItem bmp = new JMenuItem("bmp"); bmp.setActionCommand("bmp"); bmp.addActionListener(this);
@@ -89,9 +103,6 @@ public class Demo extends Component implements ActionListener, FocusListener{
         JMenuItem jpeg = new JMenuItem("jpeg"); jpeg.setActionCommand("jpeg"); jpeg.addActionListener(this);
         JMenuItem jpg = new JMenuItem("jpg"); jpg.setActionCommand("jpg"); jpg.addActionListener(this);
         JMenuItem png = new JMenuItem("png"); png.setActionCommand("png"); png.addActionListener(this);
-
-        JMenu Settings = new JMenu("Settings");
-        JCheckBoxMenuItem AdvancedOptions = new JCheckBoxMenuItem("Enable Advanced Options"); AdvancedOptions.setActionCommand("Advancethisnabled"); AdvancedOptions.addActionListener(this);
 
         JComboBox choices = new JComboBox(this.getDescriptions()); choices.setActionCommand("SetFilter"); choices.addActionListener(this);
 
@@ -102,22 +113,16 @@ public class Demo extends Component implements ActionListener, FocusListener{
         EditBar.add(EMenu); EMenu.add(Undo); EMenu.add(Redo); EMenu.add(SetROI);
 
         JPanel panel = new JPanel();
-
-
         panel.add(FileBar);
         panel.add(EditBar);
-        panel.add(mBar); mBar.add(Settings); Settings.add(AdvancedOptions);
         panel.add(new JLabel("Set Operation"));
         panel.add(choices);
         panel.add(new JLabel("Parameter"));
         panel.add(textbox);
         panel.add(apply);
-        f.add("North", panel);
-        f.pack();
-        f.setVisible(true);
 
         try {
-            bi = ImageIO.read(new File("image/Goldhill.bmp"));
+            bi = ImageIO.read(new File("image/PeppersRGB.bmp"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
 
             w = bi.getWidth(null);
@@ -138,7 +143,15 @@ public class Demo extends Component implements ActionListener, FocusListener{
             System.out.println("Image could not be read");
             System.exit(1);
         }
+
+        f.add("North", panel);
+        f.pack();
+        f.setVisible(true);
+
     }
+
+
+
     public Dimension getPreferredSize() {
         return new Dimension(w*2, h);
     }
@@ -1234,12 +1247,6 @@ public class Demo extends Component implements ActionListener, FocusListener{
             repaint();
         }
     }
-
-    public void SetRegionOfInterest(){
-
-    }
-
-
     public void save(String format, Component comp){
         File saveFile = new File("savedimage."+format);
         JFileChooser chooser = new JFileChooser();
@@ -1253,20 +1260,36 @@ public class Demo extends Component implements ActionListener, FocusListener{
             }
         }
     }
+    public void SetRegionOfInterest(){
+        String topXValue = "";
+        String topYValue = "";
+        String bottomXValue = "";
+        String bottomYValue = "";
+        int topXValueInt = 0;
+        int topYValueInt = 0;
+        int bottomXValueInt = 0;
+        int bottomYValueInt = 0;
 
-    public void keyPressed(KeyEvent evt) {
-        System.out.println("key pressed");
-        if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_Z) {
-            undo();
-        } else if (evt.isControlDown() && evt.isShiftDown() && evt.getKeyCode() == KeyEvent.VK_Z) {
-            redo();
+        topXValue = JOptionPane.showInputDialog("Please Enter Top Left X pixel. ("+topXValue+","+topYValue+"), (" + bottomXValue+","+bottomYValue+")");
+        topYValue = JOptionPane.showInputDialog("Please Enter Top Left Y pixel. ("+topXValue+","+topYValue+"), (" + bottomXValue+","+bottomYValue+")");
+        bottomXValue = JOptionPane.showInputDialog("Please Enter Bottom Right X pixel. ("+topXValue+","+topYValue+"), (" + bottomXValue+","+bottomYValue+")");
+        bottomYValue = JOptionPane.showInputDialog("Please Enter Bottom Right Y pixel. ("+topXValue+","+topYValue+"), (" + bottomXValue+","+bottomYValue+")");
+
+        try {
+            topXValueInt = Integer.parseInt(topXValue);
+            topYValueInt = Integer.parseInt(topYValue);
+            bottomXValueInt = Integer.parseInt(bottomXValue);
+            bottomYValueInt = Integer.parseInt(bottomYValue);
+        }catch(NumberFormatException e){
+            return;
         }
+
+
+        ROIStart[0] = topXValueInt;
+        ROIStart[1] = topYValueInt;
+        ROIEnd[0] = bottomXValueInt;
+        ROIEnd[1] = bottomYValueInt;
     }
-
-    public void keyReleased(KeyEvent evt){};
-    public void keyTyped(KeyEvent evt){};
-
-
     public void actionPerformed(ActionEvent e) {
         Object cbtemp = e.getSource();
         JComboBox cb;
@@ -1313,16 +1336,9 @@ public class Demo extends Component implements ActionListener, FocusListener{
                     return;
                 case "png": save("png", mi);
                     return;
-                case "undo": undo();
-                    return;
-                case "redo": redo();
-                    return;
-                case "setROI": SetRegionOfInterest();
-                    return;
             }
         }
     }
-
     public void focusLost(FocusEvent e){
         JTextField tx = (JTextField)e.getSource();
         paraText = (String)tx.getText();
@@ -1353,10 +1369,34 @@ public class Demo extends Component implements ActionListener, FocusListener{
         return convertToBimage(temp2);
     }
 
-
+    public class undoAction extends AbstractAction {
+        public undoAction(String text, String Description) {
+            super(text);
+            putValue(SHORT_DESCRIPTION, Description);
+        }
+        public void actionPerformed(ActionEvent e) {
+            undo();
+        }
+    }
+    public class RedoAction extends AbstractAction {
+        public RedoAction(String text, String Description) {
+            super(text);
+            putValue(SHORT_DESCRIPTION, Description);
+        }
+        public void actionPerformed(ActionEvent e) {
+            redo();
+        }
+    }
+    public class SetROIAction extends AbstractAction {
+        public SetROIAction(String text, String Description) {
+            super(text);
+            putValue(SHORT_DESCRIPTION, Description);
+        }
+        public void actionPerformed(ActionEvent e) {
+            SetRegionOfInterest();
+        }
+    }
     public static void main(String s[]) {
-
         Demo de = new Demo();
-        
     }
 }
