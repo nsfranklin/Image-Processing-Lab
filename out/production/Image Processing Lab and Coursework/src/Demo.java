@@ -2,6 +2,7 @@ import com.sun.org.apache.bcel.internal.generic.LOOKUPSWITCH;
 import jdk.nashorn.internal.scripts.JO;
 
 import java.io.*;
+import java.nio.Buffer;
 import java.util.Arrays;
 import java.util.TreeSet;
 import java.awt.*;
@@ -42,7 +43,8 @@ public class Demo extends Component implements ActionListener, FocusListener{
             "Order-Static Filter Max", //done
             "Order-Static Filter Mid-Point", //done
             "Order-Static Filter Alpha-Trimmed", //done (slightly tentative)
-            "Thresholding",
+            "Simple Thresholding",
+            "Automated Thresholding",
     };
 
     int opIndex;  //option index for
@@ -1096,7 +1098,36 @@ public class Demo extends Component implements ActionListener, FocusListener{
         }
         return a;
     }
-    public BufferedImage Thresholding(BufferedImage timg){
+    public BufferedImage SimpleThresholding(BufferedImage timg, int thesholdPoint){
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image = convertToArray(timg);
+        int[][][] image2 = convertToGrey(image,width,height);
+        int[][][] temp = image2;
+
+        for(int y=0; y<height; y++) {
+            for (int x = 0; x < width; x++) {
+                if(temp[x][y][1] < thesholdPoint){
+                temp[x][y][1] = 0;
+                temp[x][y][2] = 0;
+                temp[x][y][3] = 0;
+                }else{
+                temp[x][y][1] = 255;
+                temp[x][y][2] = 255;
+                temp[x][y][3] = 255;
+                }
+            }
+        }
+        return convertToBimage(temp);
+    }
+
+    public BufferedImage AutomatedThresholding(BufferedImage timg) {
+        int width = timg.getWidth();
+        int height = timg.getHeight();
+        int[][][] image = convertToArray(timg);
+        int[][][] image2 = convertToGrey(image,width,height);
+
+
         return timg;
     }
 
@@ -1162,9 +1193,26 @@ public class Demo extends Component implements ActionListener, FocusListener{
             biFiltered = bi;
         }
     }
+    public void SimpleThresholdParse(){
+        int i = -1;
+        boolean b = true;
+        try{
+            i = Integer.parseInt(paraText);
+        }catch(NumberFormatException e){
+            b = false;
+            i = -1;
+        }
+        if(b && i != -1) {
+            System.out.println(i);
+            biFiltered = SimpleThresholding(bi, i);
+        }else{
+            biFiltered = bi;
+        }
+    }
+
     public void filterImage() {
         previousStates.add(biFiltered);
-        lastOp = 17;
+        lastOp = 20;
         switch (opIndex) {
             case 0:  biFiltered = bi; /* original */
                 return;
@@ -1210,9 +1258,9 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 return;
             case 21: OSFAlphaTrimmedParse();
                 return;
-            case 22: biFiltered = Thresholding(bi);
+            case 22: SimpleThresholdParse();
                 return;
-            case 23:
+            case 23: biFiltered = AutomatedThresholding(bi);
                 return;
             case 24:
                 return;
