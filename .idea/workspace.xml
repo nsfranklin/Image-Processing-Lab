@@ -8,6 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c75fd7a4-377f-4f07-abc9-c567e1ac69bf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$1.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$RedoAction.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$RedoAction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$SetROIAction.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$SetROIAction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$undoAction.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo$undoAction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo.class" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/Demo.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/src/Demo.java" afterPath="$PROJECT_DIR$/out/production/Image Processing Lab and Coursework/src/Demo.java" />
       <change beforePath="$PROJECT_DIR$/src/Demo.java" afterPath="$PROJECT_DIR$/src/Demo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,12 +44,14 @@
       <file leaf-file-name="Demo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Demo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1101">
-              <caret line="1149" column="63" lean-forward="false" selection-start-line="1149" selection-start-column="63" selection-end-line="1149" selection-end-column="63" />
+            <state relative-caret-position="744">
+              <caret line="136" column="59" lean-forward="false" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2515#2617#0" expanded="true" />
+                <element signature="e#2616#2617#0" expanded="true" />
                 <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-                <element signature="method#paint#0;class#Demo#0" expanded="false" />
+                <element signature="e#7608#7616#0" expanded="true" />
                 <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
                 <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
                 <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -65,11 +74,15 @@
                 <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
                 <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
                 <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+                <element signature="e#31714#31715#0" expanded="true" />
+                <element signature="e#31742#31743#0" expanded="true" />
                 <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
                 <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
                 <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
                 <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
                 <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+                <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+                <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
                 <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
                 <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
                 <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -78,10 +91,12 @@
                 <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
                 <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
                 <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-                <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+                <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
                 <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
                 <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
                 <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+                <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+                <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
                 <element signature="method#undo#0;class#Demo#0" expanded="false" />
                 <element signature="method#redo#0;class#Demo#0" expanded="false" />
                 <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -90,17 +105,22 @@
                 <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
                 <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
                 <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+                <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
                 <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-                <element signature="e#56311#56312#0" expanded="true" />
-                <element signature="e#56341#56342#0" expanded="true" />
+                <element signature="e#60696#60697#0" expanded="true" />
+                <element signature="e#60726#60727#0" expanded="true" />
                 <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-                <element signature="e#56603#56604#0" expanded="true" />
-                <element signature="e#56633#56634#0" expanded="true" />
-                <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-                <element signature="e#56899#56900#0" expanded="true" />
-                <element signature="e#56944#56945#0" expanded="true" />
-                <element signature="e#56992#56993#0" expanded="true" />
-                <element signature="e#57028#57029#0" expanded="true" />
+                <element signature="e#60988#60989#0" expanded="true" />
+                <element signature="e#61018#61019#0" expanded="true" />
+                <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+                <element signature="e#61284#61285#0" expanded="true" />
+                <element signature="e#61329#61330#0" expanded="true" />
+                <element signature="e#61611#61612#0" expanded="true" />
+                <element signature="e#61658#61659#0" expanded="true" />
+                <element signature="e#61707#61708#0" expanded="true" />
+                <element signature="e#61743#61744#0" expanded="true" />
+                <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+                <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -152,8 +172,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="2277" />
+    <option name="x" value="1912" />
+    <option name="width" value="1936" />
     <option name="height" value="2118" />
   </component>
   <component name="ProjectView">
@@ -184,11 +204,12 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Git\Image Processing Lab\Image-Processing-Lab\image" />
+      <recent name="C:\Users\Nick\OneDrive\University Year 2\Semester 2\ECS518U Operating Systems\lab8\Image Processing Lab and Coursework\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nick\OneDrive\University Year 2\Semester 2\ECS518U Operating Systems\lab8\Image Processing Lab and Coursework\out\production\Image Processing Lab and Coursework\image" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Nick\OneDrive\University Year 2\Semester 2\ECS518U Operating Systems\lab8\Image Processing Lab and Coursework\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -350,7 +371,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="2277" height="2118" extended-state="0" />
+    <frame x="1912" y="0" width="1936" height="2118" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -361,7 +382,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20898536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20999496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -396,49 +417,49 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>822</line>
+          <line>838</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>1000</line>
+          <line>1016</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>698</line>
+          <line>714</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>893</line>
+          <line>909</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>1174</line>
+          <line>1270</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>1159</line>
+          <line>1255</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>854</line>
+          <line>870</line>
           <properties class="Demo" method="FindHistogram">
             <option name="EMULATED" value="true" />
           </properties>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>1059</line>
+          <line>1075</line>
           <properties class="Demo" method="OSFAlphaTrimmed">
             <option name="EMULATED" value="true" />
           </properties>
@@ -446,7 +467,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>1236</line>
+          <line>1331</line>
           <properties class="Demo" method="filterImage">
             <option name="EMULATED" value="true" />
           </properties>
@@ -454,7 +475,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Demo.java</url>
-          <line>1158</line>
+          <line>1254</line>
           <properties class="Demo" method="OSFAlphaTrimmedParse">
             <option name="EMULATED" value="true" />
           </properties>
@@ -476,8 +497,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -500,11 +523,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -513,10 +540,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -525,17 +554,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -546,8 +580,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -570,11 +606,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -583,10 +623,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -595,17 +637,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -616,8 +663,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -640,11 +689,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -653,10 +706,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -665,17 +720,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -686,8 +746,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -710,11 +772,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -723,10 +789,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -735,17 +803,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -756,8 +829,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -780,11 +855,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -793,10 +872,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -805,17 +886,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -826,8 +912,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -850,11 +938,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -863,10 +955,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -875,17 +969,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -896,8 +995,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -920,11 +1021,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -933,10 +1038,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -945,17 +1052,520 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
+            <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShifting#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperations#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsAdd#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithemeticOperationsSub#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsDivide#0;class#Demo#0" expanded="false" />
+            <element signature="method#DivideAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsMultiply#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseXORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseANDTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitPlaneSlice#0;class#Demo#0" expanded="false" />
+            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
+            <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
+            <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
+            <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
+            <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
+            <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMin#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMax#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#undo#0;class#Demo#0" expanded="false" />
+            <element signature="method#redo#0;class#Demo#0" expanded="false" />
+            <element signature="method#save#0;class#Demo#0" expanded="false" />
+            <element signature="method#SetRegionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Demo#0" expanded="false" />
+            <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
+            <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
+            <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
+            <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShifting#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperations#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsAdd#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithemeticOperationsSub#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsDivide#0;class#Demo#0" expanded="false" />
+            <element signature="method#DivideAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsMultiply#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseXORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseANDTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitPlaneSlice#0;class#Demo#0" expanded="false" />
+            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
+            <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
+            <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
+            <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
+            <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
+            <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMin#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMax#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#undo#0;class#Demo#0" expanded="false" />
+            <element signature="method#redo#0;class#Demo#0" expanded="false" />
+            <element signature="method#save#0;class#Demo#0" expanded="false" />
+            <element signature="method#SetRegionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Demo#0" expanded="false" />
+            <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
+            <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
+            <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
+            <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShifting#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperations#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsAdd#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithemeticOperationsSub#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsDivide#0;class#Demo#0" expanded="false" />
+            <element signature="method#DivideAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsMultiply#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseXORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseANDTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitPlaneSlice#0;class#Demo#0" expanded="false" />
+            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
+            <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
+            <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
+            <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
+            <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
+            <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMin#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMax#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#undo#0;class#Demo#0" expanded="false" />
+            <element signature="method#redo#0;class#Demo#0" expanded="false" />
+            <element signature="method#save#0;class#Demo#0" expanded="false" />
+            <element signature="method#SetRegionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Demo#0" expanded="false" />
+            <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
+            <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
+            <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
+            <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShifting#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperations#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsAdd#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithemeticOperationsSub#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsDivide#0;class#Demo#0" expanded="false" />
+            <element signature="method#DivideAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsMultiply#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseXORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseANDTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitPlaneSlice#0;class#Demo#0" expanded="false" />
+            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
+            <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
+            <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
+            <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
+            <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
+            <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMin#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMax#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#undo#0;class#Demo#0" expanded="false" />
+            <element signature="method#redo#0;class#Demo#0" expanded="false" />
+            <element signature="method#save#0;class#Demo#0" expanded="false" />
+            <element signature="method#SetRegionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Demo#0" expanded="false" />
+            <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
+            <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
+            <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
+            <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShifting#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperations#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsAdd#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithemeticOperationsSub#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsDivide#0;class#Demo#0" expanded="false" />
+            <element signature="method#DivideAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsMultiply#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseXORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseANDTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitPlaneSlice#0;class#Demo#0" expanded="false" />
+            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
+            <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
+            <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
+            <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
+            <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
+            <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMin#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMax#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#undo#0;class#Demo#0" expanded="false" />
+            <element signature="method#redo#0;class#Demo#0" expanded="false" />
+            <element signature="method#save#0;class#Demo#0" expanded="false" />
+            <element signature="method#SetRegionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Demo#0" expanded="false" />
+            <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
+            <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
+            <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
+            <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShifting#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelRandShiftAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperations#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsAdd#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithemeticOperationsSub#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsDivide#0;class#Demo#0" expanded="false" />
+            <element signature="method#DivideAndRescale#0;class#Demo#0" expanded="false" />
+            <element signature="method#ArithmeticOperationsMultiply#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseNotTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseXORTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitwiseANDTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitPlaneSlice#0;class#Demo#0" expanded="false" />
+            <element signature="method#SmoothImageConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#EdgeDetectionConvolution#0;class#Demo#0" expanded="false" />
+            <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
+            <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
+            <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
+            <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
+            <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
+            <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
+            <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMin#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMax#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
+            <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#undo#0;class#Demo#0" expanded="false" />
+            <element signature="method#redo#0;class#Demo#0" expanded="false" />
+            <element signature="method#save#0;class#Demo#0" expanded="false" />
+            <element signature="method#SetRegionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Demo#0" expanded="false" />
+            <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
+            <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
+            <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
+            <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -968,14 +1578,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/image/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Demo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1101">
-          <caret line="1149" column="63" lean-forward="false" selection-start-line="1149" selection-start-column="63" selection-end-line="1149" selection-end-column="63" />
+        <state relative-caret-position="744">
+          <caret line="136" column="59" lean-forward="false" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2515#2617#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
             <element signature="method#getFormats#0;class#Demo#0" expanded="false" />
-            <element signature="method#paint#0;class#Demo#0" expanded="false" />
+            <element signature="e#7608#7616#0" expanded="true" />
             <element signature="method#convertToArray#0;class#Demo#0" expanded="false" />
             <element signature="method#convertToBimage#0;class#Demo#0" expanded="false" />
             <element signature="method#ImageNegative#0;class#Demo#0" expanded="false" />
@@ -998,11 +1615,15 @@
             <element signature="method#Is3x3FilterSymetricAroundCentre#0;class#Demo#0" expanded="false" />
             <element signature="method#RotateThe3x3Matrix#0;class#Demo#0" expanded="false" />
             <element signature="method#addImageArrayPadding#0;class#Demo#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="true" />
+            <element signature="e#31742#31743#0" expanded="true" />
             <element signature="method#generalCorrelation#0;class#Demo#0" expanded="false" />
             <element signature="method#generalCorrelation#1;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#0;class#Demo#0" expanded="false" />
             <element signature="method#FindHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#FindGreyLevelHistogram#0;class#Demo#0" expanded="false" />
+            <element signature="method#convertToGrey#0;class#Demo#0" expanded="false" />
+            <element signature="method#greyScaleTransformation#0;class#Demo#0" expanded="false" />
             <element signature="method#PointProccessingLookupTable#1;class#Demo#0" expanded="false" />
             <element signature="method#EqualiseHistogram#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFMedian#0;class#Demo#0" expanded="false" />
@@ -1011,10 +1632,12 @@
             <element signature="method#OSFMidPoint#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmed#0;class#Demo#0" expanded="false" />
             <element signature="method#arrayTotalTrimmed#0;class#Demo#0" expanded="false" />
-            <element signature="method#SimpleThresholding#0;class#Demo#0" expanded="false" />
+            <element signature="method#findBackgroundPixels#0;class#Demo#0" expanded="false" />
             <element signature="method#OSFAlphaTrimmedParse#0;class#Demo#0" expanded="false" />
             <element signature="method#RescalingParse#0;class#Demo#0" expanded="false" />
             <element signature="method#ImagePixelShiftingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#BitplaneSlicingParse#0;class#Demo#0" expanded="false" />
+            <element signature="method#SimpleThresholdParse#0;class#Demo#0" expanded="false" />
             <element signature="method#undo#0;class#Demo#0" expanded="false" />
             <element signature="method#redo#0;class#Demo#0" expanded="false" />
             <element signature="method#save#0;class#Demo#0" expanded="false" />
@@ -1023,17 +1646,22 @@
             <element signature="method#focusLost#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterest#0;class#Demo#0" expanded="false" />
             <element signature="method#regionOfInterestReintegrate#0;class#Demo#0" expanded="false" />
+            <element signature="method#toggleSeriesFiltering#0;class#Demo#0" expanded="false" />
             <element signature="class#undoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56311#56312#0" expanded="true" />
-            <element signature="e#56341#56342#0" expanded="true" />
+            <element signature="e#60696#60697#0" expanded="true" />
+            <element signature="e#60726#60727#0" expanded="true" />
             <element signature="class#RedoAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56603#56604#0" expanded="true" />
-            <element signature="e#56633#56634#0" expanded="true" />
-            <element signature="class#SetROIAction#0;class#Demo#0" expanded="false" />
-            <element signature="e#56899#56900#0" expanded="true" />
-            <element signature="e#56944#56945#0" expanded="true" />
-            <element signature="e#56992#56993#0" expanded="true" />
-            <element signature="e#57028#57029#0" expanded="true" />
+            <element signature="e#60988#60989#0" expanded="true" />
+            <element signature="e#61018#61019#0" expanded="true" />
+            <element signature="method#SetROIAction#0;class#SetROIAction#0;class#Demo#0" expanded="false" />
+            <element signature="e#61284#61285#0" expanded="true" />
+            <element signature="e#61329#61330#0" expanded="true" />
+            <element signature="e#61611#61612#0" expanded="true" />
+            <element signature="e#61658#61659#0" expanded="true" />
+            <element signature="e#61707#61708#0" expanded="true" />
+            <element signature="e#61743#61744#0" expanded="true" />
+            <marker date="1551280313786" expanded="true" signature="47527:47848" ph="{...}" />
+            <marker date="1551280313786" expanded="false" signature="47915:48227" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -2,6 +2,7 @@ import com.sun.org.apache.bcel.internal.generic.LOOKUPSWITCH;
 import jdk.nashorn.internal.scripts.JO;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.nio.Buffer;
 import java.util.Arrays;
 import java.util.TreeSet;
@@ -54,9 +55,10 @@ public class Demo extends Component implements ActionListener, FocusListener{
     int[] ROIStart =  new int[]{0,0};
     int[] ROIEnd = new int[]{0,0};
     Boolean useROI = true;
+    Boolean applyFiltersInSeries = false;
 
 
-    private BufferedImage bi, biFiltered, biAlt, biPreROIFilter;   // the input image saved as bi;//
+    private BufferedImage bi, biFiltered, biAlt, biPreROIFilter, biOriginal;   // the input image saved as bi;//
     int w, h;
 
 
@@ -98,6 +100,12 @@ public class Demo extends Component implements ActionListener, FocusListener{
         SetROI.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(controlR, "conR");
         SetROI.getActionMap().put("conR", setROIAction);
 
+        Action seriesFilteringAction = new seriesFilteringAction("", "Toggles if images are filtered in order");
+        JCheckBox ToggleSeriesFilteringOn = new JCheckBox(seriesFilteringAction);
+        KeyStroke controlT = KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.CTRL_MASK);
+        ToggleSeriesFilteringOn.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(controlT, "conT");
+        ToggleSeriesFilteringOn.getActionMap().put("conT", seriesFilteringAction);
+
 
         JMenu save = new JMenu("Save Image As");
         JMenuItem bmp = new JMenuItem("bmp"); bmp.setActionCommand("bmp"); bmp.addActionListener(this);
@@ -117,6 +125,8 @@ public class Demo extends Component implements ActionListener, FocusListener{
         JPanel panel = new JPanel();
         panel.add(FileBar);
         panel.add(EditBar);
+        panel.add(new JLabel("Toggle Series Filtering"));
+        panel.add(ToggleSeriesFilteringOn);
         panel.add(new JLabel("Set Operation"));
         panel.add(choices);
         panel.add(new JLabel("Parameter"));
@@ -124,8 +134,10 @@ public class Demo extends Component implements ActionListener, FocusListener{
         panel.add(apply);
 
         try {
-            bi = ImageIO.read(new File("image/PeppersRGB.bmp"));
+            biOriginal = ImageIO.read(new File("image/1.png"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
+
+            biFiltered = bi = biOriginal;
 
             w = bi.getWidth(null);
             h = bi.getHeight(null);
@@ -136,7 +148,6 @@ public class Demo extends Component implements ActionListener, FocusListener{
 
                 ROIEnd[0] = bi.getWidth();
                 ROIEnd[1] = bi.getHeight();
-                biFiltered = bi = bi2;
                 previousStates = new ArrayList<BufferedImage>();
                 futureStates = new ArrayList<BufferedImage>();
                 previousStates.add(biFiltered);
@@ -173,9 +184,14 @@ public class Demo extends Component implements ActionListener, FocusListener{
         opIndex = i;
     }
     public void paint(Graphics g) { //  Repaint will call this function so the image will change.
-        g.drawImage(bi, 0 ,0, null);
-        g.drawImage(biFiltered, bi.getWidth(), 0, null);
-
+        if(applyFiltersInSeries == false) {
+            g.drawImage(bi, 0, 0, null);
+            g.drawImage(biFiltered, bi.getWidth(), 0, null);
+        }else{
+            bi = biFiltered;
+            g.drawImage(previousStates.get(previousStates.size()-1), 0,0,null);
+            g.drawImage(biFiltered, bi.getWidth(), 0, null);
+        }
     }
     //************************************
     //  Convert the Buffered Image to Array
@@ -1121,14 +1137,118 @@ public class Demo extends Component implements ActionListener, FocusListener{
         return convertToBimage(temp);
     }
 
+
     public BufferedImage AutomatedThresholding(BufferedImage timg) {
         int width = timg.getWidth();
         int height = timg.getHeight();
         int[][][] image = convertToArray(timg);
         int[][][] image2 = convertToGrey(image,width,height);
+        int[][][] temp = image2;
+        int muB, muO;
+        int oldThreshold = 0;
+        int newThreshold = 0;
+        int accuracy = 4;
+        int MODofOldMinusNew;
 
 
-        return timg;
+        int count = 0;
+
+        ArrayList<ArrayList<Integer>> backgroundPixelValues = findBackgroundPixels(image2, count, width, height, oldThreshold);
+
+        do{
+
+            if(count == 0) {
+                muB = muBackground(backgroundPixelValues.get(0));
+                muO = muObject(backgroundPixelValues.get(1));
+                newThreshold = muB + muO / 2;
+            }else{
+                oldThreshold = newThreshold;
+                backgroundPixelValues = findBackgroundPixels(image2, count, width, height, oldThreshold);
+                muB = muBackground(backgroundPixelValues.get(0));
+                muO = muObject(backgroundPixelValues.get(1));
+                newThreshold = muB + muO / 2;
+
+            }
+
+            if(newThreshold - oldThreshold < 0){
+                MODofOldMinusNew = (newThreshold - oldThreshold)*-1;
+            }else{
+                MODofOldMinusNew = newThreshold - oldThreshold;
+            }
+
+
+            count++;
+            System.out.println(newThreshold + " , " + oldThreshold);
+
+            if(count > 50){
+                break;
+            }
+        }while(!(MODofOldMinusNew < accuracy));
+
+
+        return SimpleThresholding(timg,newThreshold);
+    }
+
+    public int muObject(ArrayList<Integer> backgroundPixelValues){
+        int size = backgroundPixelValues.size();
+        int result = 0;
+        for(int i = 0 ; i < backgroundPixelValues.size() ; i++){
+            result = result + backgroundPixelValues.get(i);
+        }
+        if(size == 0){
+            return -1;
+        }else {
+            return result / size;
+        }
+    }
+    public int muBackground(ArrayList<Integer> objectPixelsValues){
+        int size = objectPixelsValues.size();
+        int result = 0;
+        for(int i = 0 ; i < objectPixelsValues.size() ; i++){
+            result = result + objectPixelsValues.get(i);
+        }
+        if(size == 0){
+            return -1;
+        }else {
+            return result / size;
+        }
+    }
+
+    public ArrayList<ArrayList<Integer>> findBackgroundPixels(int[][][] image , int count, int width, int height, int oldThreshold){
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        ArrayList<Integer> muBackground = new ArrayList<>();
+        ArrayList<Integer> muObject = new ArrayList<>();
+
+
+        if(count == 0){
+            muBackground.add(image[0][0][1]);  // adding the corner values
+            muBackground.add(image[0][height-1][1]);
+            muBackground.add(image[width-1][0][1]);
+            muBackground.add(image[width-1][height-1][1]);
+
+            for(int i = 0 ; i < width ;i++){
+                for(int j = 0 ; j < height ; j++) {
+                    if((i==0 && j==0)||(i==0 && j== height-1)||(i==width-1 && j == 0  )||(i==width-1 && j==height-1)) { // adding every pizel except corner pixels to an array list
+                        //System.out.println(i + " , " + j);
+                    }else{
+                        muObject.add(image[i][j][1]);
+                    }
+                }
+            }
+        }else{
+            for(int i = 0 ; i < width ; i++){
+                for(int j = 0 ; j < height ; j++) {
+                    if(image[i][j][1] < oldThreshold){
+                        muBackground.add(image[i][j][1]);
+                    }else{
+                        muObject.add(image[i][j][1]);
+                    }
+                }
+            }
+        }
+        result.add(muBackground);
+        result.add(muObject);
+        return result;
     }
 
     //Parsers and Interface Methods
@@ -1209,12 +1329,11 @@ public class Demo extends Component implements ActionListener, FocusListener{
             biFiltered = bi;
         }
     }
-
     public void filterImage() {
         previousStates.add(biFiltered);
-        lastOp = 20;
+        lastOp = 23;
         switch (opIndex) {
-            case 0:  biFiltered = bi; /* original */
+            case 0:  biFiltered = biOriginal; /* original */
                 return;
             case 1:  RescalingParse(); //Complete
                 return;
@@ -1416,6 +1535,16 @@ public class Demo extends Component implements ActionListener, FocusListener{
         }
         return convertToBimage(temp2);
     }
+    public void toggleSeriesFiltering(){
+        if(applyFiltersInSeries == false){
+            applyFiltersInSeries = true;
+        }
+        else{
+            applyFiltersInSeries = false;
+            bi = biOriginal;
+        }
+    }
+
 
     public class undoAction extends AbstractAction {
         public undoAction(String text, String Description) {
@@ -1444,6 +1573,17 @@ public class Demo extends Component implements ActionListener, FocusListener{
             SetRegionOfInterest();
         }
     }
+
+    public class seriesFilteringAction extends AbstractAction{
+        public seriesFilteringAction(String text, String Description){
+            super(text);
+            putValue(SHORT_DESCRIPTION, Description);
+        }
+        public void actionPerformed(ActionEvent e){
+            toggleSeriesFiltering();
+        }
+    }
+
     public static void main(String s[]) {
         Demo de = new Demo();
     }
