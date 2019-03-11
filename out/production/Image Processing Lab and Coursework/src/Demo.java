@@ -134,7 +134,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
         panel.add(apply);
 
         try {
-            biOriginal = ImageIO.read(new File("image/1.png"));
+            biOriginal = ImageIO.read(new File("image/ocr.png"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
 
             biFiltered = bi = biOriginal;
@@ -1067,14 +1067,14 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 Arrays.sort(gWindow);
                 Arrays.sort(bWindow);
                 image2[x][y][1] = (rWindow[0] + rWindow[8]) / 2; //r
-                image2[x][y][2] = (gWindow[0] + rWindow[8]) / 2; //g
-                image2[x][y][3] = (bWindow[0] + rWindow[8]) / 2; //b
+                image2[x][y][2] = (gWindow[0] + gWindow[8]) / 2; //g
+                image2[x][y][3] = (bWindow[0] + bWindow[8]) / 2; //b
             }
         }
         return convertToBimage(image2);
     }
     public BufferedImage OSFAlphaTrimmed(BufferedImage timg, int d){
-        if(d== 1 || d ==3 || d == 5 || d == 7){
+        if(d== 1 || d ==3 || d == 5 || d == 7 || d > 8 || d < 0){
             System.out.println("Parameter needs to be even and between 0 - 8 Inclusive");
             return timg;
         }
@@ -1136,8 +1136,6 @@ public class Demo extends Component implements ActionListener, FocusListener{
         }
         return convertToBimage(temp);
     }
-
-
     public BufferedImage AutomatedThresholding(BufferedImage timg) {
         int width = timg.getWidth();
         int height = timg.getHeight();
@@ -1188,7 +1186,6 @@ public class Demo extends Component implements ActionListener, FocusListener{
 
         return SimpleThresholding(timg,newThreshold);
     }
-
     public int muObject(ArrayList<Integer> backgroundPixelValues){
         int size = backgroundPixelValues.size();
         int result = 0;
