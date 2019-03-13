@@ -46,6 +46,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
             "Order-Static Filter Alpha-Trimmed", //done (slightly tentative)
             "Simple Thresholding",
             "Automated Thresholding",
+            "Auto Rescale",
     };
 
     int opIndex;  //option index for
@@ -54,7 +55,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
     final int UNDOLIMIT = 10;
     int[] ROIStart =  new int[]{0,0};
     int[] ROIEnd = new int[]{0,0};
-    Boolean useROI = true;
+    Boolean useROI = false;
     Boolean applyFiltersInSeries = false;
 
 
@@ -77,9 +78,6 @@ public class Demo extends Component implements ActionListener, FocusListener{
         JMenuBar mBar = new JMenuBar();
         JMenuBar FileBar = new JMenuBar(); JMenu Menu = new JMenu("File");
         JMenuBar EditBar = new JMenuBar(); JMenu EMenu = new JMenu("Edit");
-
-
-
 
         Action undoAction = new undoAction("Undo                          Ctrl + Z", "Undo the last filter applied. ShortCut: Control + Z");
         JMenuItem Undo = new JMenuItem(undoAction);
@@ -134,10 +132,11 @@ public class Demo extends Component implements ActionListener, FocusListener{
         panel.add(apply);
 
         try {
-            biOriginal = ImageIO.read(new File("image/LenaRGB.bmp"));
+            biOriginal = ImageIO.read(new File("image/PeppersRGB.bmp"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
 
-            biFiltered = bi = biOriginal;
+            biFiltered = biOriginal;
+            bi = biOriginal;
 
             w = bi.getWidth(null);
             h = bi.getHeight(null);
@@ -561,35 +560,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 temp[x][y][3] = (image1[x][y][3] * image2[x][y][3]);  //b
             }
         }
-        int max = 255;
-        int min = 255;
-        for (int j = 0; j < height; j++) {
-            for (int k = 0; k < width; k++) {
-                if (temp[k][j][1] > max) {
-                    max = temp[k][j][1];
-                } else if (temp[k][j][1] < min) {
-                    min = temp[k][j][1];
-                }
-                if (temp[k][j][2] > max) {
-                    max = temp[k][j][2];
-                } else if (temp[k][j][2] < min) {
-                    min = temp[k][j][2];
-                }
-                if (temp[k][j][3] > max) {
-                    max = temp[k][j][3];
-                } else if (temp[k][j][3] < min) {
-                    min = temp[k][j][3];
-                }
-            }
-        }
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                temp[x][y][1] = (255) * (temp[x][y][1] - min) / (max - min);
-                temp[x][y][2] = (255) * (temp[x][y][2] - min) / (max - min);
-                temp[x][y][3] = (255) * (temp[x][y][3] - min) / (max - min);
-            }
-        }
-        return convertToBimage(temp);
+        return convertToBimage(autoRescale(temp, width, height));
     }
     public BufferedImage BitwiseNotTransformation(BufferedImage timg){ //Lab 3 Exercise 2
         int width = timg.getWidth();
@@ -917,6 +888,45 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 temp[x][y][3] = grey;  //b
             }
         }
+        return autoRescale(temp, width, height);
+    }
+
+    public BufferedImage autoRescale(BufferedImage img){
+        int width = img.getWidth();
+        int height = img.getHeight();
+        return convertToBimage(autoRescale(convertToArray(img), width, height));
+    }
+
+    public int[][][] autoRescale(int[][][] image, int width, int height){
+        int[][][] temp = image;
+        int max = 255;
+        int min = 255;
+        for (int j = 0; j < height; j++) {
+            for (int k = 0; k < width; k++) {
+                if (temp[k][j][1] > max) {
+                    max = temp[k][j][1];
+                } else if (temp[k][j][1] < min) {
+                    min = temp[k][j][1];
+                }
+                if (temp[k][j][2] > max) {
+                    max = temp[k][j][2];
+                } else if (temp[k][j][2] < min) {
+                    min = temp[k][j][2];
+                }
+                if (temp[k][j][3] > max) {
+                    max = temp[k][j][3];
+                } else if (temp[k][j][3] < min) {
+                    min = temp[k][j][3];
+                }
+            }
+        }
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                temp[x][y][1] = (255) * (temp[x][y][1] - min) / (max - min);
+                temp[x][y][2] = (255) * (temp[x][y][2] - min) / (max - min);
+                temp[x][y][3] = (255) * (temp[x][y][3] - min) / (max - min);
+            }
+        }
         return temp;
     }
     public BufferedImage greyScaleTransformation(BufferedImage timg){
@@ -1137,11 +1147,11 @@ public class Demo extends Component implements ActionListener, FocusListener{
         return convertToBimage(temp);
     }
     public BufferedImage AutomatedThresholding(BufferedImage timg) {
+
         int width = timg.getWidth();
         int height = timg.getHeight();
-        int[][][] image = convertToArray(timg);
-        int[][][] image2 = convertToGrey(image,width,height);
-        int[][][] temp = image2;
+        int[][][] image = convertToArray(EqualiseHistogram(timg));
+        int[][][] temp = image;
         int muB, muO;
         int oldThreshold = 0;
         int newThreshold = 0;
@@ -1149,7 +1159,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
         int MODofOldMinusNew;
         int count = 0;
 
-        ArrayList<ArrayList<Integer>> backgroundPixelValues = findBackgroundPixels(image2, count, width, height, oldThreshold);
+        ArrayList<ArrayList<Integer>> backgroundPixelValues = findBackgroundPixels(image, count, width, height, oldThreshold);
 
         do{
 
@@ -1160,7 +1170,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 System.out.println("First Threshold Found");
             }else{
                 oldThreshold = newThreshold;
-                backgroundPixelValues = findBackgroundPixels(image2, count, width, height, oldThreshold);
+                backgroundPixelValues = findBackgroundPixels(image, count, width, height, oldThreshold);
                 muB = muBackground(backgroundPixelValues.get(0));
                 muO = muObject(backgroundPixelValues.get(1));
                 newThreshold = muB + muO / 2;
@@ -1174,7 +1184,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
             count++;
             System.out.println(newThreshold + " , " + oldThreshold);
 
-            if(count % 50 == 0){
+            if(count % 20 == 0){
                 accuracy++;
             }
         }while(!(MODofOldMinusNew < accuracy));
@@ -1327,7 +1337,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
     }
     public void filterImage() {
         previousStates.add(biFiltered);
-        lastOp = 23;
+        lastOp = 25;
         switch (opIndex) {
             case 0:  biFiltered = biOriginal; /* original */
                 return;
@@ -1377,7 +1387,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 return;
             case 23: biFiltered = AutomatedThresholding(bi);
                 return;
-            case 24:
+            case 24: biFiltered = autoRescale(bi);
                 return;
             case 25: biFiltered = ImagePixelRandShiftAndRescale(bi); //lab filter not need in final product
                 return;
