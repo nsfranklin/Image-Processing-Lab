@@ -134,7 +134,7 @@ public class Demo extends Component implements ActionListener, FocusListener{
         panel.add(apply);
 
         try {
-            biOriginal = ImageIO.read(new File("image/ocr.png"));
+            biOriginal = ImageIO.read(new File("image/LenaRGB.bmp"));
             biAlt = ImageIO.read(new File("image/BaboonRGB.bmp"));
 
             biFiltered = bi = biOriginal;
@@ -1145,10 +1145,8 @@ public class Demo extends Component implements ActionListener, FocusListener{
         int muB, muO;
         int oldThreshold = 0;
         int newThreshold = 0;
-        int accuracy = 4;
+        int accuracy = 1;
         int MODofOldMinusNew;
-
-
         int count = 0;
 
         ArrayList<ArrayList<Integer>> backgroundPixelValues = findBackgroundPixels(image2, count, width, height, oldThreshold);
@@ -1159,13 +1157,13 @@ public class Demo extends Component implements ActionListener, FocusListener{
                 muB = muBackground(backgroundPixelValues.get(0));
                 muO = muObject(backgroundPixelValues.get(1));
                 newThreshold = muB + muO / 2;
+                System.out.println("First Threshold Found");
             }else{
                 oldThreshold = newThreshold;
                 backgroundPixelValues = findBackgroundPixels(image2, count, width, height, oldThreshold);
                 muB = muBackground(backgroundPixelValues.get(0));
                 muO = muObject(backgroundPixelValues.get(1));
                 newThreshold = muB + muO / 2;
-
             }
 
             if(newThreshold - oldThreshold < 0){
@@ -1173,20 +1171,30 @@ public class Demo extends Component implements ActionListener, FocusListener{
             }else{
                 MODofOldMinusNew = newThreshold - oldThreshold;
             }
-
-
             count++;
             System.out.println(newThreshold + " , " + oldThreshold);
 
-            if(count > 50){
-                break;
+            if(count % 50 == 0){
+                accuracy++;
             }
         }while(!(MODofOldMinusNew < accuracy));
 
 
         return SimpleThresholding(timg,newThreshold);
     }
-    public int muObject(ArrayList<Integer> backgroundPixelValues){
+    public int muObject(ArrayList<Integer> objectPixelValues){
+        int size = objectPixelValues.size();
+        int result = 0;
+        for(int i = 0 ; i < objectPixelValues.size() ; i++){
+            result = result + objectPixelValues.get(i);
+        }
+        if(size == 0){
+            return -1;
+        }else {
+            return result / size;
+        }
+    }
+    public int muBackground(ArrayList<Integer> backgroundPixelValues){
         int size = backgroundPixelValues.size();
         int result = 0;
         for(int i = 0 ; i < backgroundPixelValues.size() ; i++){
@@ -1195,18 +1203,9 @@ public class Demo extends Component implements ActionListener, FocusListener{
         if(size == 0){
             return -1;
         }else {
-            return result / size;
-        }
-    }
-    public int muBackground(ArrayList<Integer> objectPixelsValues){
-        int size = objectPixelsValues.size();
-        int result = 0;
-        for(int i = 0 ; i < objectPixelsValues.size() ; i++){
-            result = result + objectPixelsValues.get(i);
-        }
-        if(size == 0){
-            return -1;
-        }else {
+            if(size == 4){
+                System.out.println("First pass");
+            }
             return result / size;
         }
     }
